@@ -62,9 +62,9 @@ export default new Router({
                 },
 
                 {
-                    path: "/manager/rewards",
-                    name: "rewards",
-                    component: () => import("@/views/manager/rewards"),
+                    path: "/manager/manageRewards",
+                    name: "manageRewards",
+                    component: () => import("@/views/manager/manageRewards"),
                     meta: {
                         title: "管理奖赏",
                         keepAlive: false
@@ -102,7 +102,7 @@ export default new Router({
             children: [
                 {
                     path: "/user/index",
-                    name: "index",
+                    name: "userIndex",
                     component: () => import("@/views/user/index"),
                     meta: {
                         title: "管理会籍",
@@ -111,7 +111,7 @@ export default new Router({
                 },
                 {
                     path: "/user/buyProxy",
-                    name: "index",
+                    name: "buyProxy",
                     component: () => import("@/views/user/buyProxy"),
                     meta: {
                         title: "购买代理",

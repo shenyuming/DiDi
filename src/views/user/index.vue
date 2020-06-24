@@ -10,17 +10,18 @@
             <div class="leftContent">
               <div class="imgTop">
                 <img class="vmlogo" src="@/assets/image/logo.png">
-                <span class="vmCardname">正常</span>
               </div>
-              <p class="nameId">Id: 1dssssssssss</p>
+              <p class="nameId">ID: 122222222222</p>
+              <p class="nameId">持卡人: 申思思</p>
+              <p class="nameId">状态：正常</p>
+              <p class="nameId">当前积分：200分</p>
             </div>
             <div class="rightContent">
               <p class="title">个人资料</p>
-              <p class="right-info">持卡人:<span>sdsd</span></p>
-              <p class="right-info">邮箱:<span>sdsd</span></p>
-              <p class="right-info">交易次数:<span>sdsd</span></p>
-              <p class="right-info">当前积分:<span>sdsd</span></p>
-            </div>
+              <p class="right-info">持卡人：<span>申思思</span></p>
+              <p class="right-info">邮箱：<span>jsssym829@163.com</span></p>
+              <p class="right-info">交易次数：<span>20000</span></p>
+             </div>
           </div>
         </div>
       </div>
@@ -41,17 +42,7 @@
       return {}
     },
     methods: {},
-    created() {},
-    // 创建前设置
-    beforeCreate() {
-      const urlPah = require('@/assets/image/auth2.png')
-      document.querySelector('body')
-        .setAttribute('style', 'background-repeat:no-repeat;background-attachment:fixed;background-size: cover; background-color:#000;background-image:url("' + urlPah + '") ')
-    },
-    // 销毁前清除
-    beforeDestroy() {
-      document.querySelector('body').removeAttribute('style')
-    }
+    created() {}
   };
 </script>
 
@@ -72,11 +63,44 @@
         padding: 30px;
         .leftContent {
           float: left;
-          background-color: red;
+          background: url("../../assets/image/vipBg.png") no-repeat top;
+          background-size: 100%;
+          height: 300px;
+          width: 200px;
+          border-radius: 10px;
+          padding: 10px;
           .imgTop {
-            .vmlogo {
-              width: 40px;
+             text-align: center;
+             padding: 10px 0 10px 0;
+            .vmlogo {  
+              width: 80px;
               height: auto;
+            }
+          }
+           .nameId{
+              line-height: 35px;
+            }
+        }
+        .rightContent{
+          margin-left: 40px;
+          min-height: 320px;
+          background-color: rgba(0,0,0,0.3);
+          border-radius: 10px;
+          float: left;
+          padding: 25px;
+          box-sizing: border-box;
+          width: 550px;
+          .title{
+            border-bottom: 1px solid #fff;
+            font-size:28px;
+            line-height: 46px;
+            margin-bottom: 20px;
+          }
+          .right-info{
+            font-size:14px;
+            line-height: 30px;
+            span{
+              text-align: right;
             }
           }
         }

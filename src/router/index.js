@@ -105,16 +105,7 @@ export default new Router({
                     name: "userIndex",
                     component: () => import("@/views/user/index"),
                     meta: {
-                        title: "管理会籍",
-                        keepAlive: false
-                    }
-                },
-                {
-                    path: "/user/buyProxy",
-                    name: "buyProxy",
-                    component: () => import("@/views/user/buyProxy"),
-                    meta: {
-                        title: "购买代理",
+                        title: "会员主页",
                         keepAlive: false
                     }
                 },
@@ -128,20 +119,11 @@ export default new Router({
                     }
                 },
                 {
-                    path: "/user/createProxy",
-                    name: "createProxy.",
-                    component: () => import("@/views/user/createProxy"),
+                    path: "/user/point",
+                    name: "point",
+                    component: () => import("@/views/user/point"),
                     meta: {
-                        title: "生成代理",
-                        keepAlive: false
-                    }
-                },
-                {
-                    path: "/user/rewards",
-                    name: "rewards",
-                    component: () => import("@/views/user/rewards"),
-                    meta: {
-                        title: "奖赏",
+                        title: "积分记录",
                         keepAlive: false
                     }
                 }

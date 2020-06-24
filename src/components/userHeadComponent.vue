@@ -6,6 +6,7 @@
     <div class="rightWrap">
        <div >连接Discord</div>
        <div>登出</div>
+       <div>语言</div>
     </div>
  </div>
 </template>

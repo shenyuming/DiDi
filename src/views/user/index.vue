@@ -10,14 +10,16 @@
             <div class="leftContent">
               <div class="imgTop">
                 <img class="vmlogo" src="@/assets/image/logo.png">
-                <span class="vmCardname">非会员</span>
+                <span class="vmCardname">正常</span>
               </div>
-              <p class="vmNumber">请购买会员资格以显示您的密钥</p>
-              <p class="name">持卡人: 申</p>
-              <p class="date">到期日: 不适用</p>
-              <div class="checkInfo">请先核实您的DISCORD </div>
+              <p class="nameId">Id: 1dssssssssss</p>
             </div>
             <div class="rightContent">
+              <p class="title">个人资料</p>
+              <p class="right-info">持卡人:<span>sdsd</span></p>
+              <p class="right-info">邮箱:<span>sdsd</span></p>
+              <p class="right-info">交易次数:<span>sdsd</span></p>
+              <p class="right-info">当前积分:<span>sdsd</span></p>
             </div>
           </div>
         </div>
@@ -30,7 +32,7 @@
   import userHeadComponent from "@/components/userHeadComponent";
   import userTabComponent from "@/components/userTabComponent"
   export default {
-    name: "",
+    name: "index",
     components: {
       userHeadComponent,
       userTabComponent
@@ -68,6 +70,16 @@
       backdrop-filter: blur(5px);
       .mainContent {
         padding: 30px;
+        .leftContent {
+          float: left;
+          background-color: red;
+          .imgTop {
+            .vmlogo {
+              width: 40px;
+              height: auto;
+            }
+          }
+        }
       }
     }
   }

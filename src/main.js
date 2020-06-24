@@ -9,7 +9,10 @@ import axios from 'axios'
 import api from '@/utils/api'
 import utils from '@/utils/base'
 import Router from 'vue-router'
-
+import lang from 'element-ui/lib/locale/lang/en'
+import locale from 'element-ui/lib/locale'
+// 设置语言
+locale.use(lang)
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false

@@ -15,23 +15,15 @@
       return {
         list: [{
             path: '/user/index',
-            title: '管理会籍'
-          },
-          {
-            path: '/user/buyProxy',
-            title: '购买代理'
+            title: '会员主页'
           },
           {
             path: '/user/manmageOrder',
             title: '管理订单'
           },
           {
-            path: '/user/createProxy',
-            title: '生成代理'
-          },
-          {
-            path: '/user/rewards',
-            title: '奖赏'
+            path: '/user/point',
+            title: '积分记录'
           }
         ],
         currentIndex: 0

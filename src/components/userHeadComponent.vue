@@ -28,7 +28,7 @@ export default {
   color: #fff;
   .leftWrap{
     float: left;
-    font-size: 26px;
+    font-size: 24px;
     .logo{
       height: 65px; 
       width: auto;
@@ -38,6 +38,7 @@ export default {
     float: right;
     font-size: 18px;
     div{
+      cursor: pointer;
       float: left;
       margin: 30px 15px;
     }

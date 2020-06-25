@@ -101,29 +101,11 @@ export default new Router({
             },
             children: [
                 {
-                    path: "/user/index",
+                    path: "index",
                     name: "userIndex",
                     component: () => import("@/views/user/index"),
                     meta: {
                         title: "会员主页",
-                        keepAlive: false
-                    }
-                },
-                {
-                    path: "/user/manmageOrder",
-                    name: "manmageOrder",
-                    component: () => import("@/views/user/manmageOrder"),
-                    meta: {
-                        title: "管理订单",
-                        keepAlive: false
-                    }
-                },
-                {
-                    path: "/user/point",
-                    name: "point",
-                    component: () => import("@/views/user/point"),
-                    meta: {
-                        title: "积分记录",
                         keepAlive: false
                     }
                 }

@@ -1,47 +1,69 @@
 <template>
   <div class="managementWrap">
     <div class="comWidth">
-      <userHeadComponent></userHeadComponent>
+      <div class="userHeadWrap clearfix">
+        <div class="leftWrap">
+          <img class="logo" src="https://didimarket.cn/img/logo.png" style="">| 用户区
+        </div>
+        <div class="rightWrap">
+          <div>连接Discord</div>
+          <div>登出</div>
+          <div>语言</div>
+        </div>
+      </div>
       <div class="manage">
         <p class="manageTitle">欢迎光临，申</p>
-        <userTabComponent></userTabComponent>
-        <div class="mainWrap">
-          <div class="mainContent">
-            <div class="leftContent">
-              <div class="imgTop">
-                <img class="vmlogo" src="@/assets/image/logo.png">
-              </div>
-              <p class="nameId">ID: 122222222222</p>
-              <p class="nameId">持卡人: 申思思</p>
-              <p class="nameId">状态：正常</p>
-              <p class="nameId">当前积分：200分</p>
-            </div>
-            <div class="rightContent">
-              <p class="title">个人资料</p>
-              <p class="right-info">持卡人：<span>申思思</span></p>
-              <p class="right-info">邮箱：<span>jsssym829@163.com</span></p>
-              <p class="right-info">交易次数：<span>20000</span></p>
-             </div>
-          </div>
+        <div class="userSwitchWrap">
+          <ul class="tab">
+            <li v-for="(tab,index) in tabList" :key="tab.value" @click="toggle(index,tab.type)" :class="{active:currentActive == index}" class="topbar-item">
+              {{tab.title}}
+            </li>
+          </ul>
         </div>
+        <!--:is实现多个组件实现同一个挂载点-->
+        <component :is="currentView"></component>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import userHeadComponent from "@/components/userHeadComponent";
-  import userTabComponent from "@/components/userTabComponent"
+  import homeComponent from "./components/homeComponent"
+  import managerOrderComponent from "./components/managerOrderComponent"
+  import ponitComponent from "./components/ponitComponent"
   export default {
     name: "index",
     components: {
-      userHeadComponent,
-      userTabComponent
+      homeComponent,
+      managerOrderComponent,
+      ponitComponent
     },
     data() {
-      return {}
+      return {
+        tabList: [{
+            type: 'homeComponent',
+            title: '会员主页'
+          },
+          {
+            type: 'managerOrderComponent',
+            title: '管理订单'
+          },
+          {
+            type: 'ponitComponent',
+            title: '积分记录'
+          }
+        ],
+        currentActive: 0,
+        currentView: 'homeComponent',
+      }
     },
-    methods: {},
+    methods: {
+      toggle(i, v) {
+        this.currentActive = i;
+        this.currentView = v;
+        console.log(this.currentView)
+      }
+    },
     created() {}
   };
 </script>
@@ -53,55 +75,41 @@
       font-size: 22px;
       padding: 20px 0;
     }
-    .mainWrap {
-      width: 100%;
-      min-height: 400px;
-      background-color: rgba(0, 0, 0, .3);
-      -webkit-backdrop-filter: blur(5px);
-      backdrop-filter: blur(5px);
-      .mainContent {
-        padding: 30px;
-        .leftContent {
-          float: left;
-          background: url("../../assets/image/vipBg.png") no-repeat top;
-          background-size: 100%;
-          height: 300px;
-          width: 200px;
-          border-radius: 10px;
-          padding: 10px;
-          .imgTop {
-             text-align: center;
-             padding: 10px 0 10px 0;
-            .vmlogo {  
-              width: 80px;
-              height: auto;
-            }
-          }
-           .nameId{
-              line-height: 35px;
-            }
+    .userHeadWrap {
+      margin: 20px 0;
+      color: #fff;
+      .leftWrap {
+        float: left;
+        font-size: 24px;
+        .logo {
+          height: 65px;
+          width: auto;
         }
-        .rightContent{
-          margin-left: 40px;
-          min-height: 320px;
-          background-color: rgba(0,0,0,0.3);
-          border-radius: 10px;
+      }
+      .rightWrap {
+        float: right;
+        font-size: 18px;
+        div {
+          cursor: pointer;
           float: left;
-          padding: 25px;
-          box-sizing: border-box;
-          width: 550px;
-          .title{
-            border-bottom: 1px solid #fff;
-            font-size:28px;
-            line-height: 46px;
-            margin-bottom: 20px;
+          margin: 30px 15px;
+        }
+      }
+    }
+    .userSwitchWrap {
+      height: 39px;
+      .tab {
+        .topbar-item {
+          float: left;
+          font-size: 14px;
+          padding: 10px 20px;
+          color: #fff;
+          font-weight: 300;
+          &.active {
+            border-bottom: 2px solid #fff !important;
           }
-          .right-info{
-            font-size:14px;
-            line-height: 30px;
-            span{
-              text-align: right;
-            }
+          &.hover {
+            border-bottom: 2px solid #fff !important;
           }
         }
       }

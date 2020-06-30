@@ -82,3 +82,23 @@ html { overflow-y: scroll; }
     width: 1000px;
     margin: 0 auto;
 }
+/* 重置表格样式 */
+.el-table tr{
+    background-color: #290811;
+    color: #fff;
+    font-size: 12px;
+}
+.el-table--enable-row-hover .el-table__body tr:hover>td{
+    background-color: #212e3e !important;
+}
+.el-pagination.is-background .el-pager li:not(.disabled).active {
+    background-color: #290811; 
+    color: #fff;
+}
+.el-pagination.is-background .el-pager li:not(.disabled):hover{
+    color: #000 !important;
+}
+.bigTable{
+    min-height: 300px;
+    background-color: #290811;
+}

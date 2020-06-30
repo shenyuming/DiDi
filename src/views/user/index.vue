@@ -105,6 +105,7 @@
           padding: 10px 20px;
           color: #fff;
           font-weight: 300;
+          cursor: pointer;
           &.active {
             border-bottom: 2px solid #fff !important;
           }

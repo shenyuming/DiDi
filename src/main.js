@@ -3,14 +3,15 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import ElementUI from 'element-ui'
-import '@/assets/css/common.css'
+import ElementUI from 'element-ui';
 import axios from 'axios'
 import api from '@/utils/api'
 import utils from '@/utils/base'
 import Router from 'vue-router'
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
+import 'element-ui/lib/theme-chalk/index.css'
+import '@/assets/css/common.css'
 // 设置语言
 locale.use(lang)
 Vue.use(ElementUI);

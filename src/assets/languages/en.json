@@ -1,0 +1,21 @@
+{
+    "lang": {
+        "user": {
+            "memberArea": "Member Area",
+            "connectDiscord": "Connect Discord",
+            "logout": "logout",
+            "welcome": "welcome",
+            "memberHomePage": "Member Homepage",
+            "orderManagement": "Order Management",
+            "pointsRecord": "PointsRecord",
+            "cardOwner": "Card Owner",
+            "status": "Status",
+            "profile": "Profile",
+            "totalPoints": "Total Points",
+            "email": "Email",
+            "tradeTimes": "Trade Times"
+            
+        }
+        
+    }
+}

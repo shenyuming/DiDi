@@ -6,15 +6,15 @@
           <img class="vmlogo" src="@/assets/image/logo.png">
         </div>
         <p class="nameId">ID: 122222222222</p>
-        <p class="nameId">持卡人: 申思思</p>
-        <p class="nameId">状态：正常</p>
-        <p class="nameId">当前积分：200分</p>
+        <p class="nameId">{{ $t('lang.user.cardOwner') }}: 申思思</p>
+        <p class="nameId">{{ $t('lang.user.status') }}：正常</p>
+        <p class="nameId">{{ $t('lang.user.totalPoints') }}：200分</p>
       </div>
       <div class="rightContent">
-        <p class="title">个人资料</p>
-        <p class="right-info">持卡人：<span>申思思</span></p>
-        <p class="right-info">邮箱：<span>jsssym829@163.com</span></p>
-        <p class="right-info">交易次数：<span>20000</span></p>
+        <p class="title">{{ $t('lang.user.profile') }}</p>
+        <p class="right-info">{{ $t('lang.user.cardOwner') }}：<span>申思思</span></p>
+        <p class="right-info">{{ $t('lang.user.email') }}：<span>jsssym829@163.com</span></p>
+        <p class="right-info">{{ $t('lang.user.tradeTimes') }}：<span>20000</span></p>
       </div>
     </div>
   </div>

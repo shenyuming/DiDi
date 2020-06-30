@@ -1,0 +1,21 @@
+{
+    "lang": {
+        "user": {
+            "memberArea": "用户区",
+            "connectDiscord": "连接Discord",
+            "logout": "登出",
+            "welcome": "欢迎光临",
+            "memberHomePage": "会员主页",
+            "orderManagement": "订单管理",
+            "pointsRecord": "积分记录",
+            "cardOwner": "持卡人",
+            "status": "状态",
+            "profile": "个人资料",
+            "totalPoints": "当前积分",
+            "email": "邮箱",
+            "tradeTimes": "交易次数"
+            
+        }
+        
+    }
+}

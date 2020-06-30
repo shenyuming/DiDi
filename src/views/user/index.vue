@@ -3,16 +3,16 @@
     <div class="comWidth">
       <div class="userHeadWrap clearfix">
         <div class="leftWrap">
-          <img class="logo" src="https://didimarket.cn/img/logo.png" style="">| 用户区
+          <img class="logo" src="https://didimarket.cn/img/logo.png" style="">| {{ $t('lang.user.welcome') }}
         </div>
         <div class="rightWrap">
-          <div>连接Discord</div>
-          <div>登出</div>
+          <div>{{ $t('lang.user.connectDiscord') }}</div>
+          <div>{{ $t('lang.user.logout') }}</div>
           <div>语言</div>
         </div>
       </div>
       <div class="manage">
-        <p class="manageTitle">欢迎光临，申</p>
+        <p class="manageTitle">{{ $t('lang.user.welcome') }}，申</p>
         <div class="userSwitchWrap">
           <ul class="tab">
             <li v-for="(tab,index) in tabList" :key="tab.value" @click="toggle(index,tab.type)" :class="{active:currentActive == index}" class="topbar-item">
@@ -42,15 +42,16 @@
       return {
         tabList: [{
             type: 'homeComponent',
-            title: '会员主页'
+            // title: i18n.t('lang.user.memberHomePage')
+            title: this.$i18n.t('lang.user.memberHomePage')
           },
           {
             type: 'managerOrderComponent',
-            title: '管理订单'
+            title: this.$i18n.t('lang.user.orderManagement')
           },
           {
             type: 'ponitComponent',
-            title: '积分记录'
+            title: this.$i18n.t('lang.user.pointsRecord')
           }
         ],
         currentActive: 0,
@@ -64,7 +65,8 @@
         console.log(this.currentView)
       }
     },
-    created() {}
+    created() {
+    }
   };
 </script>
 

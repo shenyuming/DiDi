@@ -58,9 +58,6 @@ export default {
   .page{
       margin-top: 30px;
   }
-  .el-table{
-    
-  } 
     
 }
 </style>

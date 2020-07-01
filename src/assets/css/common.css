@@ -86,7 +86,7 @@ html { overflow-y: scroll; }
 .el-table tr{
     background-color: #290811;
     color: #fff;
-    font-size: 12px;
+    font-size: 13px;
 }
 .el-table--enable-row-hover .el-table__body tr:hover>td{
     background-color: #212e3e !important;

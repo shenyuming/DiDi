@@ -14,7 +14,7 @@ import '@/assets/css/common.css'
 Vue.use(VueI18n);
 Vue.use(ElementUI);
 const i18n = new VueI18n({
-  locale: "en", // 定义默认语言为中文
+  locale: "zh", // 定义默认语言为中文
   messages: {
     zh: require("./assets/languages/zh.json"),
     en: require("./assets/languages/en.json")

@@ -10,7 +10,7 @@
           <div>{{ $t('lang.user.logout') }}</div>
             <el-dropdown @command="handleCommand">
                 <span class="el-dropdown-link">
-                   中文<i class="el-icon-arrow-down el-icon--right"></i>
+                   {{ selectedLang }}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
                     <el-dropdown-item command="zh">中文</el-dropdown-item>
@@ -65,22 +65,56 @@
         currentView: 'homeComponent'
       }
     },
+    computed: {
+      selectedLang() {
+        let lang = '';
+        switch (this.$i18n.locale) {
+          case 'zh': {
+            lang = '中文'
+            break;
+          }
+          case "en": {
+            lang = 'English'
+            break;
+          }
+          default:
+            lang = '中文'
+            break;
+        }
+        return lang;
+      }
+    },
     methods: {
        // 根据下拉框的中被选中的值切换语言
       handleCommand(command) {
-        // this.$message("click on item " + command);
         switch (command) {
           case "zh": {
             this.$i18n.locale = "zh";
+            this.selectedLang = '中文'
             break;
           }
           case "en": {
             this.$i18n.locale = "en";
+            this.selectedLang = 'English'
             break;
           }
           default:
             break;
         }
+        this.tabList = [
+          {
+            type: 'homeComponent',
+            title: this.$i18n.t('lang.user.memberHomePage')
+          },
+          {
+            type: 'managerOrderComponent',
+            title: this.$i18n.t('lang.user.orderManagement')
+          },
+          {
+            type: 'ponitComponent',
+            title: this.$i18n.t('lang.user.pointsRecord')
+          }
+        ]
       },
       toggle(i, v) {
         this.currentActive = i;

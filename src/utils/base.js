@@ -1,63 +1,54 @@
+import axios from 'axios'
+import URLS from '@/utils/api'
 
-// import axios from 'axios'
-// import { resolve, reject } from 'q'
-// import { Loading } from 'element-ui';
-// let getData = (url,data={}) => {
-//     return new Promise((resolve,reject) => {
-//         axios({
-//             url:url,
-//             method:"post",
-//             data:data
-//         })
-//         .then(res => {
-//             if(res && res.data && res.data.code==0){
-//                 resolve(res.data);
-//             }else{
-//                 reject(res.data.msg);
-//             }
-//         },(err => {
-//             reject(err);
-//         }))
-//     })   
-// }
-// let getData1 = (url,data={}) => {
-//     return new Promise((resolve,reject) => {
-//         axios({
-//             url:url,
-//             method:"get",
-//             params:data
-//         })
-//         .then(res => {
-//             if(res && res.data && res.data.code==0){
-//                 resolve(res.data);
-//             }else{
-//                 reject(res.data.msg);
-//             }
-//         },(err => {
-//             reject(err);
-//         }))
-//     })   
-// }
-// let loadFn = (() => {
-//     const loadOption={fullscreen: true ,lock: true, text: '数据马上出炉，请稍等ヾ(●´▽`●)ノ', spinner: 'el-icon-loading', background: 'rgba(0, 0, 0, 0.7)'}
-//     let load;
+// ajax请求统一增加请求头
+axios.interceptors.request.use(config => {
+    config.headers.common = {
+        'Content-Type': "application/json; charset=utf-8",
+        //   'Access-Control-Allow-Origin':'*',
+        //   'Access-Control-Allow-Headers':'X-Requested-With,Content-Type',
+        //   'Access-Control-Allow-Methods':'PUT,POST,GET,DELETE,OPTIONS',
+    }
+    config.timeout = 10000;
+    return config
+}),
 
-//     return {
-//         // constructor(vueThis){
-//         //     this.vm = vueThis ;  //vue中的this  
-//         // }
-//         open(){
-//             load = Loading.service(loadOption);
-//         },
-//         close(){
-//             load.close();
-//         }
-//     }
-// })()
+// 拦截响应response，并做一些错误处理
+axios.interceptors.response.use((response) => {
+    //return data;
+    return response;
+}, (err) => {
+    // 这里是返回状态码不为200时候的错误处理
+    if (err.toString().indexOf("timeout") != -1) {
+        this.$message({
+            message: '请求超时，请稍后再试'
+        });
+    }
+    if (err && err.response) {
+        switch (err.response.status) {
+            case 400:
+                err.message = '请求错误'
+                break
+            case 401:
+                err.message = '未授权，请登录';
+                location.href=URLS.logIn
+                break
+            case 403:
+                err.message = '拒绝访问'
+                break
+            case 500:
+                err.message = '网络错误，请稍后再试'
+                break
+            default:
+        }
+        if (err.response.data.msg) {
+            err.message = err.response.data.msg;
+        }
+        this.$message({
+            message: err.message
+          })
+    }
+    return Promise.reject(err)
+})
 
-
-// export  {
-//     getData,
-//     getData1,
-//     loadFn  
-// }
+export default axios

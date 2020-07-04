@@ -102,3 +102,6 @@ html { overflow-y: scroll; }
     min-height: 300px;
     background-color: #290811;
 }
+a{
+    color: #fff;
+}

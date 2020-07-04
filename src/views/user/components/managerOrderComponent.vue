@@ -47,7 +47,23 @@ export default {
         }
     },
     methods: {
-      
+       //查询个人交易信息
+        queryTradeList() {
+            var _this = this;
+            this.$ajax.put(this.URLS.tradeList)
+                .then(function(response) {
+                    console.log(response)
+                    if (response.data.Entity.Id != null) {
+                        _this.memberInfo = response.data.Entity || ''
+                    }
+                })
+                .catch(function(error) {
+                    console.log(error);
+                })
+        },
+    },
+    created(){
+        this.queryTradeList()
     }
 }
 </script>

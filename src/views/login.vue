@@ -10,7 +10,7 @@
           </div>
         </div>
         <div class="detail-holder">
-          <a href="" class="btn">Login</a>
+          <a :href="loginIn" class="btn">Login</a>
         </div>
       </div>
     </div>
@@ -21,10 +21,16 @@
   export default {
     name: "login",
     data() {
-      return {};
+      return {
+        loginIn:this.URLS.logIn
+      };
     },
-    methods: {},
-    created() {}
+    methods: {
+
+    },
+    created() {
+     
+    }
   };
 </script>
 

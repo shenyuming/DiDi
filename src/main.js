@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import ElementUI from 'element-ui';
 import axios from 'axios'
-import api from '@/utils/api'
+import URLS from '@/utils/api'
 import utils from '@/utils/base'
 import VueI18n from 'vue-i18n'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -23,7 +23,7 @@ const i18n = new VueI18n({
 Vue.config.productionTip = false
 axios.defaults.withCredentials = true
 Vue.prototype.$ajax = axios
-Vue.prototype.api = api;
+Vue.prototype.URLS = URLS;
 Vue.prototype.utils = utils;
 
 /* eslint-disable no-new */

@@ -1,17 +1,10 @@
-const testUrl = 'http://172.16.1.40:8999';
-// const testUrl = 'http://dataportal-api.htd.cn';
+const webUrl= "https://localhost:5001"
 
-export default {
-    dataIndex:{
-        leftMenu: testUrl + '/indexDetail/fieldTree',
-        indexSummaryAll:testUrl+'/indexDetail/indexSummaryAll',
-        fieldList:testUrl + '/indexDetail/listHomePageFieldIndexDetails',
-        oneField:testUrl + '/indexDetail/summaryByField',
-        indexInfo:testUrl + '/indexDetail/pageIndexDetail',
-        notice:testUrl + '/indexDetail/notice',
-        oneIndexInfo:testUrl + '/indexDetail/detail',
-        indexChangeRecord: testUrl + '/indexDetail/changeLog',
-        searchBlock:testUrl+'/indexDetail/search',
-        getTimeData:testUrl+'/indexDetail/lastTime'
-    }
+const URLS= {
+        basicInfo: webUrl + '/membership/basic',
+        memberInfo:webUrl+'/membership/info',
+        tradeList:webUrl + '/trade/list',
+        logIn:webUrl +'/login',
+        logOut:webUrl +'/logout'
 }
+export default URLS

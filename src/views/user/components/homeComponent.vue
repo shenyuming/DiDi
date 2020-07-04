@@ -5,16 +5,16 @@
         <div class="imgTop">
           <img class="vmlogo" src="@/assets/image/logo.png">
         </div>
-        <p class="nameId">ID: 122222222222</p>
-        <p class="nameId">{{ $t('lang.user.cardOwner') }}: 申思思</p>
+        <p class="nameId">ID: {{memberInfo.Id}}</p>
+        <p class="nameId">{{ $t('lang.user.cardOwner') }}: {{memberInfo.Name}}</p>
         <p class="nameId">{{ $t('lang.user.status') }}：正常</p>
-        <p class="nameId">{{ $t('lang.user.totalPoints') }}：200分</p>
+        <p class="nameId">{{ $t('lang.user.totalPoints') }}：<span v-if="memberTrade.Score>0">{{memberTrade.Score}}分</span></p>
       </div>
       <div class="rightContent">
         <p class="title">{{ $t('lang.user.profile') }}</p>
-        <p class="right-info">{{ $t('lang.user.cardOwner') }}：<span>申思思</span></p>
-        <p class="right-info">{{ $t('lang.user.email') }}：<span>jsssym829@163.com</span></p>
-        <p class="right-info">{{ $t('lang.user.tradeTimes') }}：<span>20000</span></p>
+        <p class="right-info">{{ $t('lang.user.cardOwner') }}：<span>{{memberInfo.Name}}</span></p>
+        <p class="right-info">{{ $t('lang.user.email') }}：<span>{{memberInfo.Email}}</span></p>
+        <p class="right-info">{{ $t('lang.user.tradeTimes') }}：<span v-if="memberTrade.SellCount>0">{{memberTrade.SellCount}}</span></p>
       </div>
     </div>
   </div>
@@ -24,14 +24,26 @@
   export default {
     name: "",
     props: {
-      
+      memberInfo: {
+         type:Object,
+         default:null
+      },
+      memberTrade:{
+         type:Object,
+         default:null
+      }
     },
     data() {
-      return {};
+      return {
+          
+      };
     },
     methods: {
      
     },
+    created(){
+      console.log(this.memberInfo)
+    }
   };
 </script>
 

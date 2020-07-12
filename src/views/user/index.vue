@@ -3,7 +3,7 @@
         <div class="comWidth">
             <div class="userHeadWrap clearfix">
                 <div class="leftWrap">
-                    <img class="logo" src="https://didimarket.cn/img/logo.png" style="">| {{ $t('lang.user.welcome') }}
+                    <img class="logo" src="../../assets/image/logo.png" style="">| {{ $t('lang.user.welcome') }}
                 </div>
                 <div class="rightWrap">
                     <div>
@@ -25,7 +25,7 @@
             </div>
             <div class="manage">
                 <p class="manageTitle">{{ $t('lang.user.welcome') }}，
-                    <!-- <span v-if="memberInfo.Name!=null">{{memberInfo.Name}}</span> -->
+                    <span v-if="memberInfo.Name!=null">{{memberInfo.Name}}</span>
                 </p>
                 <div class="userSwitchWrap">
                     <ul class="tab">
@@ -35,7 +35,7 @@
                     </ul>
                 </div>
                 <!--:is实现多个组件实现同一个挂载点-->
-                <!-- <component :is="currentView" :memberInfo="memberInfo" :memberTrade="memberTrade"></component> -->
+                <component :is="currentView" :memberInfo="memberInfo" :memberTrade="memberTrade"></component>
             </div>
         </div>
     </div>
@@ -132,7 +132,7 @@ export default {
         toggle(i, v) {
             this.currentActive = i;
             this.currentView = v;
-            console.log(this.currentView)
+            // console.log(this.currentView)
         },
         //查询个人信息
         queryMain() {
@@ -141,7 +141,7 @@ export default {
                 .then(function(response) {
                     console.log(response)
                     if (response.data.Entity.Id != null) {
-                        _this.memberInfo = response.data.Entity || ''
+                        _this.memberInfo = response.data.Entity
                     }
                 })
                 .catch(function(error) {
@@ -155,41 +155,19 @@ export default {
                 .then(function(response) {
                     console.log(response)
                     if (response.data.Entity.Id != null) {
-                        _this.memberTrade = response.data.Entity || ''
+                        _this.memberTrade = response.data.Entity
                     }
                 })
                 .catch(function(error) {
                     console.log(error);
                 })
-        },
-        //查询个人交易信息
-        queryTradeList() {
-            var _this = this;
-            this.$ajax({
-               headers: {
-                    'Content-Type': 'application/json'
-                },
-                method:'PUT',
-                url:this.URLS.tradeList,
-                data:{Offset:0,PageSize:10}
-            }).then(function(response) {
-                    console.log(response)
-                    if (response.data.Entity.Id != null) {
-                        _this.memberInfo = response.data.Entity || ''
-                    }
-                })
-                .catch(function(error) {
-                    console.log(error);
-                })
-               
-        },
+        }
         
     },
     created() {
         var _this = this;
         _this.queryMain();
         _this.queryTrade();
-        _this.queryTradeList();
     }
 };
 </script>

@@ -9,9 +9,7 @@
             <p class="subInfo">Login with Discord to continue.</p>
           </div>
         </div>
-        <div class="detail-holder">
-          <a :href="loginIn" class="btn">Login</a>
-        </div>
+        <a :href="loginIn" class="detail-holder">Login</a>
       </div>
     </div>
   </div>
@@ -72,6 +70,7 @@
           }
         }
         .detail-holder{
+          display: block;
            padding: 15px 30px;
            font-size: 26px;
            width: 400px;
@@ -79,9 +78,7 @@
            background: #b81d24;
            cursor: pointer;
            border-radius: 10px;
-           .btn{
-             color: #fff;
-           }
+          color: #fff;
         }
       }
     }

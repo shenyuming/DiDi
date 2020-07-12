@@ -6,15 +6,15 @@
           <img class="vmlogo" src="@/assets/image/logo.png">
         </div>
         <p class="nameId">ID: {{memberInfo.Id}}</p>
-        <p class="nameId">{{ $t('lang.user.cardOwner') }}: {{memberInfo.Name}}</p>
+        <p class="nameId"  v-if="memberInfo.Name!=null" >{{ $t('lang.user.cardOwner') }}: {{memberInfo.Name}}</p>
         <p class="nameId">{{ $t('lang.user.status') }}：正常</p>
-        <p class="nameId">{{ $t('lang.user.totalPoints') }}：<span v-if="memberTrade.Score>0">{{memberTrade.Score}}分</span></p>
+        <p class="nameId">{{ $t('lang.user.totalPoints') }}：<span  v-if="memberTrade.Score>=0">{{memberTrade.Score}}分</span></p>
       </div>
       <div class="rightContent">
         <p class="title">{{ $t('lang.user.profile') }}</p>
-        <p class="right-info">{{ $t('lang.user.cardOwner') }}：<span>{{memberInfo.Name}}</span></p>
+        <p class="right-info" v-if="memberInfo.Name!=null">{{ $t('lang.user.cardOwner') }}：<span>{{memberInfo.Name}}</span></p>
         <p class="right-info">{{ $t('lang.user.email') }}：<span>{{memberInfo.Email}}</span></p>
-        <p class="right-info">{{ $t('lang.user.tradeTimes') }}：<span v-if="memberTrade.SellCount>0">{{memberTrade.SellCount}}</span></p>
+        <p class="right-info">{{ $t('lang.user.tradeTimes') }}：<span v-if="memberTrade.SellCount>=0">{{memberTrade.SellCount}}</span></p>
       </div>
     </div>
   </div>
@@ -42,7 +42,7 @@
      
     },
     created(){
-      console.log(this.memberInfo)
+      // console.log(this.memberInfo)
     }
   };
 </script>

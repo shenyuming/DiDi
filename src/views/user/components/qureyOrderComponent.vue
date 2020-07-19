@@ -91,7 +91,6 @@
             queryAdminTrade() {
                 var _this = this;
                 _this.adminTradeList=[];
-                console.log(_this.searchParam.TradeStatus)
                 _this.$ajax({
                         headers: {
                             'Content-Type': 'application/json; charset=utf-8'
@@ -116,10 +115,7 @@
                     .catch(function(error) {
                         console.log(error);
                     })
-            },
-            // changeStatus(id){
-            //     console.log(id)
-            // }
+            }
         },
         created() {
             this.queryAdminTrade()

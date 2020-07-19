@@ -9,6 +9,7 @@
             "orderManagement": "订单管理",
             "tradeList":"交易信息",
             "pointsRecord": "积分记录",
+            "memberList":"会员列表",
             "cardOwner": "持卡人",
             "status": "状态",
             "profile": "个人资料",

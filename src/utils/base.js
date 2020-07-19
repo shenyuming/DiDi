@@ -1,5 +1,6 @@
 import axios from 'axios'
 import URLS from '@/utils/api'
+import { showLoading, hideLoading } from './loading'
 
 // ajax请求统一增加请求头
 axios.interceptors.request.use(config => {
@@ -9,9 +10,19 @@ axios.interceptors.request.use(config => {
         //   'Access-Control-Allow-Headers':'X-Requested-With,Content-Type',
         //   'Access-Control-Allow-Methods':'PUT,POST,GET,DELETE,OPTIONS',
     }
+    showLoading();
     config.timeout = 10000;
     return config
 }),
+
+/* 请求之后的操作 */
+axios.interceptors.response.use((res) => {
+    hideLoading();
+    return res
+  }, (err) => {
+    hideLoading();
+    return Promise.reject(err);
+  });
 
 // 拦截响应response，并做一些错误处理
 axios.interceptors.response.use((response) => {
@@ -35,6 +46,7 @@ axios.interceptors.response.use((response) => {
                 break
             case 403:
                 err.message = '拒绝访问'
+                this.$router.push({path:'/manager/index'})
                 break
             case 500:
                 err.message = '网络错误，请稍后再试'

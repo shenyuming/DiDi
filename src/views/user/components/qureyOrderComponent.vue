@@ -5,7 +5,7 @@
           :cell-style="{padding:'0px'}" 
           style="width:100%"
           class="bigTable">
-          <el-table-column prop="AssociatedOrderId" label="交易号" width="100" />
+          <el-table-column prop="AssociatedOrderId" label="sd" width="100" />
           <el-table-column prop="OperatorId" label="增减操作ID"  />
           <el-table-column prop="ScoreChange" label="扣除积分"  />
           <el-table-column prop="OperationAt" label="记录时间"  />

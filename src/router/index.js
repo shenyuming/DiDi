@@ -40,54 +40,6 @@ export default new Router({
                         title: "主页",
                         keepAlive: false
                     }
-                },
-                {
-                    path: "/manager/userList",
-                    name: "userList",
-                    component: () => import("@/views/manager/userList"),
-                    meta: {
-                        title: "用户列表",
-                        keepAlive: false
-                    }
-                },
-
-                {
-                    path: "/manager/tradeCenter",
-                    name: "tradeCenter",
-                    component: () => import("@/views/manager/tradeCenter"),
-                    meta: {
-                        title: "交易",
-                        keepAlive: false
-                    }
-                },
-
-                {
-                    path: "/manager/manageRewards",
-                    name: "manageRewards",
-                    component: () => import("@/views/manager/manageRewards"),
-                    meta: {
-                        title: "管理奖赏",
-                        keepAlive: false
-                    }
-                },
-
-                {
-                    path: "/manager/membership",
-                    name: "membership",
-                    component: () => import("@/views/manager/membership"),
-                    meta: {
-                        title: "管理会籍",
-                        keepAlive: false
-                    }
-                },
-                {
-                    path: "/manager/voucher",
-                    name: "voucher",
-                    component: () => import("@/views/manager/voucher"),
-                    meta: {
-                        title: "淘宝激活码",
-                        keepAlive: false
-                    }
                 }
             ]
         },

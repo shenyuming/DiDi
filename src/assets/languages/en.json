@@ -13,7 +13,8 @@
             "profile": "Profile",
             "totalPoints": "Total Points",
             "email": "Email",
-            "tradeTimes": "Trade Times"
+            "tradeTimes": "Trade Times",
+            "queryOrder":"Query Order"
         }
         
     }

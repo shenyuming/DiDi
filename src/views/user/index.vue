@@ -14,8 +14,8 @@
                     </div>
                     <el-dropdown @command="handleCommand">
                         <span class="el-dropdown-link">
-                                 {{ selectedLang }}<i class="el-icon-arrow-down el-icon--right"></i>
-                              </span>
+                                                         {{ selectedLang }}<i class="el-icon-arrow-down el-icon--right"></i>
+                                                      </span>
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item command="zh">中文</el-dropdown-item>
                             <el-dropdown-item command="en">English</el-dropdown-item>
@@ -25,7 +25,7 @@
             </div>
             <div class="manage">
                 <p class="manageTitle">{{ $t('lang.user.welcome') }}，
-                    <span v-if="memberInfo.Name!=null">{{memberInfo.Name}}</span>
+                    <span v-if="memberInfo.Name">{{memberInfo.Name}}</span>
                 </p>
                 <div class="userSwitchWrap">
                     <ul class="tab">
@@ -45,34 +45,26 @@
 import homeComponent from "./components/homeComponent"
 import managerOrderComponent from "./components/managerOrderComponent"
 import ponitComponent from "./components/ponitComponent"
+import qureyOrderComponent from "./components/qureyOrderComponent"
+import Cookies from 'js-cookie'
 export default {
     name: "index",
     components: {
         homeComponent,
         managerOrderComponent,
-        ponitComponent
+        ponitComponent,
+        qureyOrderComponent
     },
     data() {
         return {
             loginIn: this.URLS.logIn,
             loginOut: this.URLS.logOut,
-            tabList: [{
-                    type: 'homeComponent',
-                    title: this.$i18n.t('lang.user.memberHomePage')
-                },
-                {
-                    type: 'managerOrderComponent',
-                    title: this.$i18n.t('lang.user.orderManagement')
-                },
-                {
-                    type: 'ponitComponent',
-                    title: this.$i18n.t('lang.user.pointsRecord')
-                }
-            ],
+            tabList: [],
             currentActive: 0,
             currentView: 'homeComponent',
             memberInfo: null,
-            memberTrade: null
+            memberTrade: null,
+            isAdmin: '' //是否是管理员
         }
     },
     computed: {
@@ -132,16 +124,43 @@ export default {
         toggle(i, v) {
             this.currentActive = i;
             this.currentView = v;
-            // console.log(this.currentView)
+            console.log(this.currentView)
         },
         //查询个人信息
         queryMain() {
             var _this = this;
             this.$ajax.get(this.URLS.basicInfo)
                 .then(function(response) {
-                    console.log(response)
                     if (response.data.Entity.Id != null) {
-                        _this.memberInfo = response.data.Entity
+                        _this.memberInfo = response.data.Entity;
+                        console.log(_this.memberInfo)
+                        _this.isAdmin = response.data.Entity.IsAdmin;
+                        Cookies.set('isAdmin', _this.isAdmin)
+                        if (_this.isAdmin) {
+                            _this.tabList = [{
+                                    type: 'homeComponent',
+                                    title: _this.$i18n.t('lang.user.memberHomePage')
+                                },
+                                {
+                                    type: 'qureyOrderComponent',
+                                    title: _this.$i18n.t('lang.user.orderManagement')
+                                }
+                            ]
+                        } else {
+                            _this.tabList = [{
+                                    type: 'homeComponent',
+                                    title: _this.$i18n.t('lang.user.memberHomePage')
+                                },
+                                {
+                                    type: 'managerOrderComponent',
+                                    title: _this.$i18n.t('lang.user.orderManagement')
+                                },
+                                {
+                                    type: 'ponitComponent',
+                                    title: _this.$i18n.t('lang.user.pointsRecord')
+                                }
+                            ]
+                        }
                     }
                 })
                 .catch(function(error) {
@@ -161,13 +180,74 @@ export default {
                 .catch(function(error) {
                     console.log(error);
                 })
-        }
-        
+        },
+        //管理员查询信息
+        queryAdminList() {
+            this.$ajax({
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8'
+                    },
+                    method: 'PUT',
+                    url: this.URLS.adminList,
+                    data: {
+                        "PageIndex": 2,
+                        "PageSize": 3
+                    }
+                }).then(function(response) {
+                    console.log(response)
+                })
+                .catch(function(error) {
+                    console.log(error);
+                })
+        },
+        //管理员用户信息
+        queryAdminInfo() {
+            this.$ajax.get(this.URLS.adminInfo, {
+                    params: {
+                        discordIdStr: 111
+                    }
+                })
+                .then(function(response) {
+                    console.log(response)
+                })
+                .catch(function(error) {
+                    console.log(error);
+                })
+        },
+        //管理员查询交易
+        queryAdminTrade() {
+            this.$ajax({
+                    headers: {
+                        'Content-Type': 'application/json; charset=utf-8'
+                    },
+                    method: 'PUT',
+                    url: this.URLS.admintrade,
+                    data: {
+                        "TradeCreateTime": "2020-01-02 01:01:01",
+                        "TradeStatus": 0,
+                        "UserName": "2@qq.com",
+                        "pagination": {
+                            "PageIndex": 1,
+                            "PageSize": 5
+                        }
+                    }
+                }).then(function(response) {
+                    console.log(response)
+                })
+                .catch(function(error) {
+                    console.log(error);
+                })
+        },
     },
     created() {
         var _this = this;
         _this.queryMain();
-        _this.queryTrade();
+        if (!Cookies.get('isAdmin')) {
+            _this.queryTrade();
+        }
+        // _this.queryAdminInfo();
+        // _this.queryAdminList();
+        // _this.queryAdminTrade();
     }
 };
 </script>

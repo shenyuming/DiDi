@@ -13,11 +13,7 @@
                 <el-table-column prop="TradeScore" label="交易积分" />
             </el-table>
             <el-row class="page">
-                <el-pagination background="" 
-                layout="prev, pager, next" 
-                :total="totalOrder" 
-                :page-size="pageSize"
-                @current-change="handleCurrentChange"/>
+                <el-pagination background="" layout="prev, pager, next" :total="totalOrder" :page-size="pageSize" @current-change="handleCurrentChange" />
             </el-row>
         </div>
         <div class="no-data" v-else>
@@ -33,9 +29,9 @@ export default {
     data() {
         return {
             tableData: '',
-            totalOrder:'',
-            pageSize:10,
-            offset:0
+            totalOrder: '',
+            pageSize: 10,
+            PageIndex: 1
         }
     },
     methods: {
@@ -49,14 +45,13 @@ export default {
                     method: 'PUT',
                     url: this.URLS.tradeList,
                     data: {
-                        Offset:_this.offset,
+                        PageIndex: _this.PageIndex,
                         PageSize: _this.pageSize
                     }
                 }).then(function(response) {
                     if (response.data.Entity.Data.length > 0) {
                         _this.tableData = response.data.Entity.Data || ''
-                        _this.totalOrder = response.data.Entity.TotalCount
-                        console.log(_this.totalOrder)
+                        _this.totalOrder = response.data.Entity.Data.length
                     }
                 })
                 .catch(function(error) {
@@ -67,7 +62,7 @@ export default {
         handleCurrentChange(val) {
             console.log(val)
             // 改变页的时候调用一次
-            this.offset = (val-1)*10;
+            this.PageIndex = val;
             this.queryTradeList()
         }
     },
@@ -83,7 +78,7 @@ export default {
     .page {
         margin-top: 30px;
     }
-    .no-data{
+    .no-data {
         text-align: center;
         margin: 40px 0;
     }

@@ -62,8 +62,17 @@ export default {
             tabList: [],
             currentActive: 0,
             currentView: 'homeComponent',
-            memberInfo: null,
-            memberTrade: null,
+            memberInfo: {
+                Email:'',
+                Name:'',
+                Id:'',
+                IsInBlackList:'',
+                IsAdmin:''
+            },
+            memberTrade: {
+                Score:0,
+                SellCount:0
+            },
             isAdmin: '' //是否是管理员
         }
     },
@@ -124,7 +133,7 @@ export default {
         toggle(i, v) {
             this.currentActive = i;
             this.currentView = v;
-            console.log(this.currentView)
+            console.log(this.currentActive)
         },
         //查询个人信息
         queryMain() {
@@ -133,7 +142,6 @@ export default {
                 .then(function(response) {
                     if (response.data.Entity.Id != null) {
                         _this.memberInfo = response.data.Entity;
-                        console.log(_this.memberInfo)
                         _this.isAdmin = response.data.Entity.IsAdmin;
                         Cookies.set('isAdmin', _this.isAdmin)
                         if (_this.isAdmin) {
@@ -143,7 +151,7 @@ export default {
                                 },
                                 {
                                     type: 'qureyOrderComponent',
-                                    title: _this.$i18n.t('lang.user.orderManagement')
+                                    title: _this.$i18n.t('lang.user.tradeList')
                                 }
                             ]
                         } else {
@@ -174,7 +182,7 @@ export default {
                 .then(function(response) {
                     console.log(response)
                     if (response.data.Entity.Id != null) {
-                        _this.memberTrade = response.data.Entity
+                        _this.memberTrade = response.data.Entity || ''
                     }
                 })
                 .catch(function(error) {
@@ -213,41 +221,14 @@ export default {
                 .catch(function(error) {
                     console.log(error);
                 })
-        },
-        //管理员查询交易
-        queryAdminTrade() {
-            this.$ajax({
-                    headers: {
-                        'Content-Type': 'application/json; charset=utf-8'
-                    },
-                    method: 'PUT',
-                    url: this.URLS.admintrade,
-                    data: {
-                        "TradeCreateTime": "2020-01-02 01:01:01",
-                        "TradeStatus": 0,
-                        "UserName": "2@qq.com",
-                        "pagination": {
-                            "PageIndex": 1,
-                            "PageSize": 5
-                        }
-                    }
-                }).then(function(response) {
-                    console.log(response)
-                })
-                .catch(function(error) {
-                    console.log(error);
-                })
-        },
+        }
     },
     created() {
         var _this = this;
         _this.queryMain();
-        if (!Cookies.get('isAdmin')) {
-            _this.queryTrade();
-        }
-        // _this.queryAdminInfo();
-        // _this.queryAdminList();
-        // _this.queryAdminTrade();
+        _this.queryTrade();
+        _this.queryAdminInfo();
+        _this.queryAdminList();
     }
 };
 </script>

@@ -105,3 +105,6 @@ html { overflow-y: scroll; }
 a{
     color: #fff;
 }
+input{
+    padding: 0 5px;
+}

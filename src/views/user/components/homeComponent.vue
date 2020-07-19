@@ -2,7 +2,7 @@
   <div class="userHomeWrap">
     <div class="mainContent">
       <div class="leftContent">
-        <div class="imgTop">小程序
+        <div class="imgTop">
           <img class="vmlogo" src="@/assets/image/logo.png">
         </div>
         <p class="nameId">ID: {{memberInfo.Id}}</p>
@@ -42,7 +42,7 @@
      
     },
     created(){
-      // console.log(this.memberInfo)
+
     }
   };
 </script>

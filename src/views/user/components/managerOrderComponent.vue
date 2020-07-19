@@ -51,7 +51,7 @@ export default {
                 }).then(function(response) {
                     if (response.data.Entity.Data.length > 0) {
                         _this.tableData = response.data.Entity.Data || ''
-                        _this.totalOrder = response.data.Entity.Data.length
+                        _this.totalOrder = response.data.Entity.TotalCount
                     }
                 })
                 .catch(function(error) {

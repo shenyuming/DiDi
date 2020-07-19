@@ -133,7 +133,7 @@ export default {
         toggle(i, v) {
             this.currentActive = i;
             this.currentView = v;
-            console.log(this.currentActive)
+            // console.log(this.currentActive)
         },
         //查询个人信息
         queryMain() {

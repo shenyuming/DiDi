@@ -2,7 +2,7 @@
     <div class="pointWrap">
         <div class="top clearfix">
             <div class="g-fl">交易日期:
-                <el-date-picker type="datetime"  v-model="searchParam.date" placeholder="选择交易时间" value-format="yyyy-MM-dd HH:mm:ss"></el-date-picker>
+                <el-date-picker type="datetime"  v-model="searchParam.TradeCreateTime" placeholder="选择交易时间" value-format="yyyy-MM-dd HH:mm:ss"></el-date-picker>
             </div>
             <div class="g-fl smallInput">
                 <span>中间人ID:</span>
@@ -10,12 +10,12 @@
                 </el-input>
             </div>
             <div class="g-fl smallInput">用户ID:
-                <el-input type="text" v-model="searchParam.userId" placeholder="请输入用户ID">
+                <el-input type="text" v-model="searchParam.UserName" placeholder="请输入用户ID">
                 </el-input>
             </div>
             <div class="g-fl smallOptionInput">交易状态：
-                <el-select placeholder="交易状态" size="small">
-                    <el-option v-model="searchParam.name" 
+                <el-select placeholder="请选择" size="small" v-model="searchParam.TradeStatus">
+                    <el-option 
                     v-for="item in listStatus" 
                     :key="item.id" 
                     :value="item.id" 
@@ -33,8 +33,8 @@
                 <el-table-column prop="TradeStatus" label="交易状态" />
                 <el-table-column prop="TradeFileId" label="交易记录文件ID" />
                 <el-table-column prop="TradeChannelId" label="交易频道ID" />>
-                <el-table-column prop="Seller.Id" label="卖方" />
-                <el-table-column prop="Buyer.Id" label="买方" />
+                <el-table-column prop="Seller.Email" label="卖方" />
+                <el-table-column prop="Buyer.Email" label="买方" />
                 <el-table-column prop="MiddleMan" label="中间人" />>
                 <el-table-column prop="Currency" label="交易币种" />
                 <el-table-column prop="Amount" label="交易金额" />
@@ -63,22 +63,25 @@
                 pageSize: 10,
                 PageIndex: 1,
                 listStatus: [{
-                        name: '进行中',
+                        name: '未知',
                         id: '0'
                     },
                     {
-                        name: '已关闭',
+                        name: '交易中',
                         id: '1'
                     },
                     {
-                        name: '进行中',
+                        name: '交易成功',
                         id: '2'
+                    },{
+                        name: '交易完成',
+                        id: '3'
                     }
                 ],
                 searchParam: {
-                    date: '',
-                    middleId: '',
-                    userId: '',
+                    TradeCreateTime: '',
+                    TradeStatus: '',
+                    UserName: '',
                     name: ''
                 }
             }
@@ -87,6 +90,8 @@
             //管理员查询交易
             queryAdminTrade() {
                 var _this = this;
+                _this.adminTradeList=[];
+                console.log(_this.searchParam.TradeStatus)
                 _this.$ajax({
                         headers: {
                             'Content-Type': 'application/json; charset=utf-8'
@@ -94,9 +99,9 @@
                         method: 'PUT',
                         url: this.URLS.admintrade,
                         data: {
-                            "TradeCreateTime": "",
-                            "TradeStatus": '',
-                            "UserName": '',
+                            "TradeCreateTime": _this.searchParam.TradeCreateTime,
+                            "TradeStatus": _this.searchParam.TradeStatus,
+                            "UserName": _this.searchParam.UserName,
                             "pagination": {
                                 "PageIndex": _this.PageIndex,
                                 "PageSize": _this.pageSize
@@ -111,10 +116,13 @@
                     .catch(function(error) {
                         console.log(error);
                     })
-            }
+            },
+            // changeStatus(id){
+            //     console.log(id)
+            // }
         },
         created() {
-            this.queryAdminTrade();
+            this.queryAdminTrade()
         }
     };
 </script>

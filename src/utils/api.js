@@ -1,5 +1,5 @@
-const webUrl= "https://localhost:5001"
-// const webUrl= "https://api.didimarket.cn"
+console.log(process.env)
+const webUrl = process.env.BASE_API
 const URLS= {
         basicInfo: webUrl + '/membership/basic',
         memberInfo:webUrl+'/membership/info',

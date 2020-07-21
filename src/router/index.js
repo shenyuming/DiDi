@@ -6,7 +6,7 @@ export default new Router({
     routes: [
         {
             path: "/",
-            name: "MainIndex",
+            name: "login",
             redirect: "/login",
             component: () => import("@/views/login"),
             meta: {
@@ -18,6 +18,15 @@ export default new Router({
             path: "/login",
             name: "Login",
             component: () => import("@/views/login"),
+            meta: {
+                title: "DiDiMarket",
+                keepAlive: true
+            }
+        },
+        {
+            path: "/infomation",
+            name: "infomation",
+            component: () => import("@/views/infomation"),
             meta: {
                 title: "DiDiMarket",
                 keepAlive: true

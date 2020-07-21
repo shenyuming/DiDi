@@ -7,6 +7,8 @@ const URLS= {
         adminInfo:webUrl + '/admin/memberInfo',
         adminList:webUrl + '/admin/memberList',
         admintrade:webUrl + '/admin/trade',
+        formTrade:webUrl + 'trade/result',
+        predata:webUrl + 'trade/predata',
         logIn:webUrl +'/login',
         logOut:webUrl +'/logout'
 }

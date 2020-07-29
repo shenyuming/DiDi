@@ -47,11 +47,26 @@ export default {
     name: "information",
     data() {
         return {
-            loginIn: this.URLS.logIn
+            memberInfo:{
+
+            }
         };
     },
     methods: {
-
+        // 查询信息
+        // queryAdminInfo() {
+        //     this.$ajax.get(this.URLS.adminInfo, {
+        //             params: {
+        //                 discordIdStr: 111
+        //             }
+        //         })
+        //         .then(function(response) {
+        //             console.log(response)
+        //         })
+        //         .catch(function(error) {
+        //             console.log(error);
+        //         })
+        // }
     },
     created() {
 

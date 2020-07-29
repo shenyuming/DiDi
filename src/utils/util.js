@@ -21,6 +21,5 @@ const util = {
             console.log('格式转换失败');
             return '';
         }
-
-    },
+    }
 }

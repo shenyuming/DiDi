@@ -2,7 +2,7 @@
     <div class="managementWrap">
         <div class="headTop">
             <div class="g-fl">
-                <img class="logoImg g-fl" src="@/assets/image/logo-top.png" alt="">
+                <img class="logoImg g-fl" src="@/assets/image/logoTopAll.png" alt="">
                 <p class="index g-fl">{{$t('lang.user.index') }}</p>
                 <a class="link g-fl" :href="loginIn">{{ $t('lang.user.connectDiscord') }}</a>
             </div>
@@ -38,7 +38,7 @@
                 </ul>
             </div>
         </div>
-        <div class="comWidth">
+        <div class="">
             <div class="manage">
                 <!--:is实现多个组件实现同一个挂载点-->
                 <component :is="currentView" :memberInfo="memberInfo" :memberTrade="memberTrade"></component>
@@ -256,7 +256,7 @@ export default {
         margin: 0 auto;
         .logoImg {
             display: block;
-            width: 56px;
+            width: 276px;
             height: 44px;
             margin-top: 8px;
         }
@@ -286,7 +286,7 @@ export default {
         }
     }
     .setUserInfo {
-        background: url('../../assets/image/logo-top.png') no-repeat center;
+        background: url('../../assets/image/other-top.png') no-repeat center;
         background-size: 100%;
         height: 313px;
         text-align: center;
@@ -314,7 +314,7 @@ export default {
         }
     }
     .userSwitchWrap {
-        width: 966px;
+        width: 726px;
         margin: 0 auto;
         height: 39px;
         margin-top: 30px;

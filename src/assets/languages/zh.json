@@ -16,7 +16,8 @@
             "totalPoints": "当前积分",
             "email": "邮箱",
             "tradeTimes": "交易次数" ,
-            "queryOrder":"查询交易" 
+            "queryOrder":"查询交易" ,
+            "index":"首页"
         }
         
     }

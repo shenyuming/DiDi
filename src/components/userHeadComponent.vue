@@ -1,15 +1,15 @@
 <template>
-
+   
 </template>
 
 <script>
 export default {
-  name: 'userHeadComponent',
-  data () {
-    return {
-     
+    name: 'userHeadComponent',
+    data() {
+        return {
+
+        }
     }
-  }
 }
 </script>
 

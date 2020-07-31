@@ -1,39 +1,45 @@
 <template>
     <div class="managementWrap">
-        <div class="comWidth">
-            <div class="userHeadWrap clearfix">
-                <div class="leftWrap">
-                    <img class="logo" src="../../assets/image/logo.png" style="">| {{ $t('lang.user.welcome') }}
-                </div>
-                <div class="rightWrap">
-                    <div>
-                        <a :href="loginIn">{{ $t('lang.user.connectDiscord') }}</a>
-                    </div>
-                    <div>
-                        <a :href="loginOut">{{ $t('lang.user.logout') }}</a>
-                    </div>
-                    <el-dropdown @command="handleCommand">
-                        <span class="el-dropdown-link">
-                                                                 {{ selectedLang }}<i class="el-icon-arrow-down el-icon--right"></i>
-                                                              </span>
-                        <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item command="zh">中文</el-dropdown-item>
-                            <el-dropdown-item command="en">English</el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>
-                </div>
+        <div class="headTop">
+            <div class="g-fl">
+                <img class="logoImg g-fl" src="@/assets/image/logo-top.png" alt="">
+                <p class="index g-fl">{{$t('lang.user.index') }}</p>
+                <a class="link g-fl" :href="loginIn">{{ $t('lang.user.connectDiscord') }}</a>
             </div>
-            <div class="manage">
-                <p class="manageTitle">{{ $t('lang.user.welcome') }}，
+            <div class="g-fr">
+                <div class="person g-fl">
+                    <img src="@/assets/image/pic.png" alt="">
                     <span v-if="memberInfo.Name">{{memberInfo.Name}}</span>
-                </p>
-                <div class="userSwitchWrap">
-                    <ul class="tab">
-                        <li v-for="(tab,index) in tabList" :key="tab.value" @click="toggle(index,tab.type)" :class="{active:currentActive == index}" class="topbar-item">
-                            {{tab.title}}
-                        </li>
-                    </ul>
                 </div>
+                <div class="language g-fl">
+                    <img v-if="zh" @click="handleCommand('zh')" src="@/assets/image/ch.png" alt="">
+                    <img v-if="en" @click="handleCommand('en')" src="@/assets/image/en.png" alt="">
+                </div>
+                <a class="login g-fl" :href="loginOut">{{ $t('lang.user.logout') }}</a>
+            </div>
+        </div>
+        <div class="setUserInfo">
+            <div class="headpic">
+                <img v-if="memberInfo.Avatar&&memberInfo.Avatar!=null" :src="memberInfo.Avatar" alt="">
+                <img v-else src="@/assets/image/logo-top.png" alt="">
+            </div>
+            <div class="name">
+                {{memberInfo.Name}}
+            </div>
+            <div class="detail">
+                <span class="id">{{memberInfo.Id}}</span>
+                <span class="email">{{memberInfo.Email}}</span>
+            </div>
+            <div class="userSwitchWrap">
+                <ul class="tab">
+                    <li v-for="(tab,index) in tabList" :key="tab.value" @click="toggle(index,tab.type)" class="topbar-item">
+                        <div class="inner-item" :class="{active:currentActive == index}">{{tab.title}}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="comWidth">
+            <div class="manage">
                 <!--:is实现多个组件实现同一个挂载点-->
                 <component :is="currentView" :memberInfo="memberInfo" :memberTrade="memberTrade"></component>
             </div>
@@ -59,6 +65,8 @@ export default {
     },
     data() {
         return {
+            zh: true,
+            en: false,
             loginIn: this.URLS.logIn,
             loginOut: this.URLS.logOut,
             tabList: [],
@@ -69,6 +77,7 @@ export default {
                 Name: '',
                 Id: '',
                 IsInBlackList: '',
+                Avatar: '',
                 IsAdmin: ''
             },
             memberTrade: {
@@ -106,13 +115,15 @@ export default {
                 case "zh":
                     {
                         this.$i18n.locale = "zh";
-                        // this.selectedLang = '中文'
+                        this.zh = true;
+                        this.en = false;
                         break;
                     }
                 case "en":
                     {
                         this.$i18n.locale = "en";
-                        // this.selectedLang = 'English'
+                        this.zh = false;
+                        this.en = true;
                         break;
                     }
                 default:
@@ -236,50 +247,96 @@ export default {
 <style lang="scss" scoped>
 .managementWrap {
     color: #fff;
-    .manageTitle {
-        font-size: 22px;
-        padding: 20px 0;
-    }
-    .userHeadWrap {
-        margin: 20px 0;
-        color: #fff;
-        .leftWrap {
-            float: left;
-            font-size: 24px;
-            .logo {
-                height: 65px;
-                width: auto;
+    font-size: 14px;
+    .headTop {
+        width: 1100px;
+        height: 60px;
+        line-height: 60px;
+        overflow: hidden;
+        margin: 0 auto;
+        .logoImg {
+            display: block;
+            width: 56px;
+            height: 44px;
+            margin-top: 8px;
+        }
+        .index {
+            width: 100px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .link {
+            cursor: pointer;
+        }
+        .person {
+            img {
+                width: 20px;
+                height: 21px;
+                margin-right: 13px;
             }
         }
-        .rightWrap {
-            float: right;
-            font-size: 18px;
-            div {
-                cursor: pointer;
-                float: left;
-                margin: 30px 15px;
+        .language {
+            margin: 20px 40px;
+            cursor: pointer;
+            img {
+                display: block;
+                width: 20px;
+                height: 20px;
             }
-            .el-dropdown {
-                color: #fff;
-                font-size: 18px;
+        }
+    }
+    .setUserInfo {
+        background: url('../../assets/image/logo-top.png') no-repeat center;
+        background-size: 100%;
+        height: 313px;
+        text-align: center;
+        .headpic {
+            margin-top: 60px;
+            border-radius: 50%;
+            width: 112px;
+            height: 112px;
+            border: 1px solid #FFE109;
+            display: inline-block;
+        }
+        .name {
+            margin-top: 20px;
+            line-height: 20px;
+        }
+        .detail {
+            margin-top: 20px;
+            .id {
+                padding-right: 20px;
+                border-right: 1px solid #A5A7AD;
+            }
+            .email {
+                padding-left: 20px;
             }
         }
     }
     .userSwitchWrap {
+        width: 966px;
+        margin: 0 auto;
         height: 39px;
+        margin-top: 30px;
         .tab {
             .topbar-item {
                 float: left;
                 font-size: 14px;
-                padding: 10px 20px;
+                width: 33%;
                 color: #fff;
                 font-weight: 300;
                 cursor: pointer;
-                &.active {
-                    border-bottom: 2px solid #fff !important;
-                }
-                &.hover {
-                    border-bottom: 2px solid #fff !important;
+                position: relative;
+                .inner-item {
+                    margin: 0 auto;
+                    width: 120px;
+                    padding: 10px 0;
+                    &.active {
+                        border-bottom: 2px solid #FFE109 !important;
+                    }
+                    &.hover {
+                        border-bottom: 2px solid #FFE109 !important;
+                    }
                 }
             }
         }

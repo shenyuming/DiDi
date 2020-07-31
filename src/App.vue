@@ -12,10 +12,6 @@ export default {
 
 <style>
 body{
-  background: url('assets/image/auth2.png');
-  background-repeat:no-repeat;
-  background-attachment:fixed;
-  background-size: cover; 
-  background-color:#000;
+  background-color:#1E2331;
 }
 </style>

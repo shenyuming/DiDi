@@ -1,10 +1,13 @@
 <template>
-    <div class="loginWrap">
+   <div class="loginWrap">
+    <div class="loginInner">
         <div class="login">
             <div class="content-holder">
                 <div class="user-head">
                     <div class="text-box">
-                        <strong class="subtitle">DiDiMarket</strong>
+                        <div class="subtitle">
+                            <img src="@/assets/image/whyIndex.png" alt="">
+                        </div>
                         <p class="subInfo">Login with Discord to continue.</p>
                     </div>
                 </div>
@@ -12,6 +15,7 @@
             </div>
         </div>
     </div>
+   </div>
 </template>
 
 <script>
@@ -38,13 +42,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.headTop {
-    overflow: hidden;
-    width: 1300px;
-    margin: 0 auto;
-}
-
-.loginWrap {
+.loginWrap{
+    padding-top: 200px;
+    .loginInner {
     margin: 0 auto;
     .login {
         text-align: center;
@@ -69,10 +69,10 @@ export default {
                 color: #6b7182;
                 background-color: rgba(0, 0, 0, .3);
                 .subtitle {
-                    font-size: 21px;
-                    line-height: 25px;
-                    color: #fff;
-                    margin: 0 0 10px;
+                    img{
+                        width:236px ;
+                        height: 96px;
+                    }
                 }
                 .subInfo {
                     line-height: 35px;
@@ -94,4 +94,6 @@ export default {
         }
     }
 }
+}
+
 </style>

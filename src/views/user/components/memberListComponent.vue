@@ -18,7 +18,8 @@
             </el-row>
         </div>
         <div class="no-data" v-else>
-            暂时没数据
+            <img src="@/assets/image/noStatus.png" alt="">
+            <p>暂时没数据</p>
         </div>
     </div>
 </template>

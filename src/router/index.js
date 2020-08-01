@@ -24,9 +24,9 @@ export default new Router({
             }
         },
         {
-            path: "/infomation",
-            name: "infomation",
-            component: () => import("@/views/infomation"),
+            path: "/information",
+            name: "information",
+            component: () => import("@/views/information"),
             meta: {
                 title: "DiDiMarket",
                 keepAlive: true

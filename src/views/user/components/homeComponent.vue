@@ -2,15 +2,15 @@
     <div class="homeWrap">
         <div class="userInner">
             <div class="likeui likeui1">
-                <p class="status">状态</p>
+                <p class="status">{{$t('lang.user.status') }}</p>
                 <p class="statusDetail">正常</p>
             </div>
             <div class="likeui likeui2">
-                <p class="status">当前积分</p>
+                <p class="status">{{$t('lang.user.currentPoint')}}</p>
                 <p class="statusDetail">{{memberTrade.Score}}<span class="icon">分</span></p>
             </div>
             <div class="likeui likeui3">
-                <p class="status">交易次数</p>
+                <p class="status">{{$t('lang.user.tradeTimes')}}</p>
                 <p class="statusDetail">{{memberTrade.SellCount}}<span class="icon">次</span></p>
             </div>
         </div>
@@ -46,8 +46,8 @@ export default {
 
 <style lang='scss' scoped>
 .homeWrap {
-     width: 1000px;
-     margin: 0 auto;
+    width: 1000px;
+    margin: 0 auto;
     .userInner {
         margin: 0 auto;
         overflow: hidden;

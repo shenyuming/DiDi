@@ -16,8 +16,16 @@ export default new Router({
         },
         {
             path: "/login",
-            name: "Login",
+            name: "login",
             component: () => import("@/views/login"),
+            meta: {
+                title: "DiDiMarket",
+                keepAlive: true
+            }
+        },{
+            path: "/home",
+            name: "home",
+            component: () => import("@/views/home"),
             meta: {
                 title: "DiDiMarket",
                 keepAlive: true

@@ -1,23 +1,6 @@
 <template>
     <div class="managementWrap">
-        <div class="headTop">
-            <div class="g-fl">
-                <img class="logoImg g-fl" src="@/assets/image/logoTopAll.png" alt="">
-                <p class="index g-fl">{{$t('lang.user.index') }}</p>
-                <a class="link g-fl" :href="loginIn">{{ $t('lang.user.connectDiscord') }}</a>
-            </div>
-            <div class="g-fr">
-                <div class="person g-fl">
-                    <img src="@/assets/image/pic.png" alt="">
-                    <span v-if="memberInfo.Name">{{memberInfo.Name}}</span>
-                </div>
-                <div class="language g-fl">
-                    <img v-if="zh" @click="handleCommand('zh')" src="@/assets/image/ch.png" alt="">
-                    <img v-if="en" @click="handleCommand('en')" src="@/assets/image/en.png" alt="">
-                </div>
-                <a class="login g-fl" :href="loginOut">{{ $t('lang.user.logout') }}</a>
-            </div>
-        </div>
+        <user-head-component v-on:childByValue="childByValue"></user-head-component>
         <div class="setUserInfo">
             <div class="headpic">
                 <img v-if="memberInfo.Avatar&&memberInfo.Avatar!=null" :src="memberInfo.Avatar" alt="">
@@ -48,6 +31,7 @@
 </template>
 
 <script>
+import userHeadComponent from "@/components/userHeadComponent"
 import homeComponent from "./components/homeComponent"
 import managerOrderComponent from "./components/managerOrderComponent"
 import ponitComponent from "./components/ponitComponent"
@@ -57,6 +41,7 @@ import Cookies from 'js-cookie'
 export default {
     name: "index",
     components: {
+        userHeadComponent,
         homeComponent,
         managerOrderComponent,
         ponitComponent,
@@ -65,10 +50,7 @@ export default {
     },
     data() {
         return {
-            zh: true,
-            en: false,
-            loginIn: this.URLS.logIn,
-            loginOut: this.URLS.logOut,
+            language: localStorage.getItem('language') || 'zh',
             tabList: [],
             currentActive: 0,
             currentView: 'homeComponent',
@@ -87,73 +69,37 @@ export default {
             isAdmin: '' //是否是管理员
         }
     },
-    computed: {
-        selectedLang() {
-            let lang = '';
-            switch (this.$i18n.locale) {
-                case 'zh':
-                    {
-                        lang = '中文'
-                        break;
-                    }
-                case "en":
-                    {
-                        lang = 'English'
-                        break;
-                    }
-                default:
-                    lang = '中文'
-                    break;
-            }
-            return lang;
-        }
+    watch: {
+
     },
     methods: {
-        // 根据下拉框的中被选中的值切换语言
-        handleCommand(command) {
-            switch (command) {
-                case "zh":
-                    {
-                        this.$i18n.locale = "zh";
-                        this.zh = true;
-                        this.en = false;
-                        break;
-                    }
-                case "en":
-                    {
-                        this.$i18n.locale = "en";
-                        this.zh = false;
-                        this.en = true;
-                        break;
-                    }
-                default:
-                    break;
-            }
-            if (this.isAdmin) {
-                this.tabList = [{
+        childByValue: function(childValue) {
+            var _this = this;
+            if (_this.isAdmin) {
+                _this.tabList = [{
                         type: 'homeComponent',
-                        title: this.$i18n.t('lang.user.memberHomePage')
+                        title: _this.$i18n.t('lang.user.memberHomePage')
                     },
                     {
                         type: 'qureyOrderComponent',
-                        title: this.$i18n.t('lang.user.tradeList')
+                        title: _this.$i18n.t('lang.user.tradeList')
                     }, {
                         type: 'memberListComponent',
-                        title: this.$i18n.t('lang.user.memberList')
+                        title: _this.$i18n.t('lang.user.memberList')
                     }
                 ]
             } else {
-                this.tabList = [{
+                _this.tabList = [{
                         type: 'homeComponent',
-                        title: this.$i18n.t('lang.user.memberHomePage')
+                        title: _this.$i18n.t('lang.user.memberHomePage')
                     },
                     {
                         type: 'managerOrderComponent',
-                        title: this.$i18n.t('lang.user.orderManagement')
+                        title: _this.$i18n.t('lang.user.orderManagement')
                     },
                     {
                         type: 'ponitComponent',
-                        title: this.$i18n.t('lang.user.pointsRecord')
+                        title: _this.$i18n.t('lang.user.pointsRecord')
                     }
                 ]
             }
@@ -237,6 +183,7 @@ export default {
     },
     created() {
         var _this = this;
+        _this.$i18n.locale = _this.language;
         _this.queryMain();
         _this.queryTrade();
         // _this.queryAdminInfo();

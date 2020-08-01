@@ -6,7 +6,7 @@
             <a class="link g-fl" :href="loginIn">{{ $t('lang.user.connectDiscord') }}</a>
         </div>
         <div class="g-fr">
-            <div class="person g-fl">
+            <div class="person g-fl" @click="hrefUser">
                 <img src="@/assets/image/pic.png" alt="">
                 <span v-if="memberInfo.Name">{{memberInfo.Name}}</span>
             </div>
@@ -58,6 +58,9 @@ export default {
         //跳转到首页
         hrefHome() {
             this.$router.push({ path: '/home' })
+        },
+        hrefUser(){
+             this.$router.push({ path: '/user/index' })
         },
         // 切换语言
         handleCommand(command) {

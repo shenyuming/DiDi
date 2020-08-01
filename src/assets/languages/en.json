@@ -4,7 +4,6 @@
             "memberArea": "Member Area",
             "connectDiscord": "Connect Discord",
             "logout": "logout",
-            "welcome": "welcome",
             "memberHomePage": "Member Homepage",
             "orderManagement": "Order Management",
             "tradeList":"trade List",
@@ -20,11 +19,12 @@
             "index":"Index",
             "currentPoint":"Current Points",
             "heart":"Starting from the heart, connecting the world",
-            "homeWelcome:":"Welcome to everyone who comes to didi market and let each other have more trust. We are committed to building the safest and most convenient robot and shoe community. We are deeply honored and grateful to shoulder this mission. We hope that there will always be light and become an ideal community.",
             "lookMore":"More",
             "evevironment":"The most secure and convenient trading environment",
             "groupServer":"Best quality group purchase service",
-            "support":"7 * 24-hour service support"
+            "support":"7 * 24-hour service support",
+            "newWelcome":"Welcome to everyone who comes to didi market and let each other have more trust. We are committed to building the safest and most convenient robot and shoe community. We are deeply honored and grateful to shoulder this mission. We hope that there will always be light and become an ideal community."
+           
         }
         
     }

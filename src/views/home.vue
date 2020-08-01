@@ -7,7 +7,7 @@
                     <img class="logo" src="@/assets/image/whyIndex.png" alt="">
                     <div class="line"></div>
                     <div class="titile">
-                       {{$t('lang.user.homeWelcome')}}
+                      {{$t('lang.user.newWelcome')}}
                     </div>
                     <div class="more"><img src="@/assets/image/icon-bottom.png" alt="">{{$t('lang.user.lookMore')}}</div>
                 </div>

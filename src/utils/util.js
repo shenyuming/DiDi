@@ -21,5 +21,45 @@ const util = {
             console.log('格式转换失败');
             return '';
         }
+    },
+   /*
+  * 获取url参数
+  * @param {String} name 参数名
+  * @return {String}
+  * */
+  getURLParam(name) {
+    let reg = new RegExp("(^|\\?|&)" + name + "=([^&]*)(\\s|&|$)","i");
+        if(reg.test(window.location.href)){
+            return unescape(RegExp.$2.replace(/\+/g," "))
+        }
+        return undefined
+  },
+    checkparams:function(rule, arr) {
+    var checked = true;
+    // arr.forEach((item, index) => {
+    for (var i = 0; i < arr.length; i++) {
+      var value = rule[arr[i]];
+      //必填校验
+      if (value.requireTip != null) {
+        if (value.value == null || value.value.length == 0) {
+          Vue.$toast({ message: value.requireTip });
+          checked = false;
+          break;
+        }
+      }
+      //正则校验
+      if (value.regular != null) {
+        if (!value.regular.test(value.value)) {
+          Vue.$toast({ message: value.regularTip });
+          checked = false;
+          break;
+        }
+
+      }
+
     }
+    return checked;
+  }
+
 }
+export default util

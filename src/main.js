@@ -8,8 +8,11 @@ import axios from 'axios'
 import URLS from '@/utils/api'
 import utils from '@/utils/base'
 import VueI18n from 'vue-i18n'
+import {Message} from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/css/common.css'
+Vue.prototype.$message = Message;
+
 // 设置语言
 Vue.use(VueI18n);
 Vue.use(ElementUI);

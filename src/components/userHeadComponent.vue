@@ -92,7 +92,7 @@ export default {
             var _this = this;
             this.$ajax.get(this.URLS.basicInfo)
                 .then(function(response) {
-                    if (response.data.Entity.Id != null) {
+                    if (response.data.Entity.Id && response.data.Entity.Id != null) {
                         _this.memberInfo = response.data.Entity;
                         _this.isAdmin = response.data.Entity.IsAdmin;
                         Cookies.set('isAdmin', _this.isAdmin)

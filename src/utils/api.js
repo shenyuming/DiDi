@@ -7,8 +7,11 @@ const URLS= {
         adminInfo:webUrl + '/admin/memberInfo',
         adminList:webUrl + '/admin/memberList',
         admintrade:webUrl + '/admin/trade',
-        formTrade:webUrl + 'trade/result',
-        predata:webUrl + 'trade/predata',
+        formTrade:webUrl + '/trade/result',
+        tradeResult:webUrl + '/tradeResult',
+        tradeSave:webUrl + '/tradeResult/save',//保存信息
+        tradeSubmit:webUrl + '/tradeResult/submit',//提交信息
+        candidate:webUrl + '/admin/candidate',
         logIn:webUrl +'/login',
         logOut:webUrl +'/logout'
 }

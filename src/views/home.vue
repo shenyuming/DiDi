@@ -7,7 +7,7 @@
                     <img class="logo" src="@/assets/image/whyIndex.png" alt="">
                     <div class="line"></div>
                     <div class="titile">
-                      {{$t('lang.user.newWelcome')}}
+                        {{$t('lang.user.newWelcome')}}
                     </div>
                     <div class="more"><img src="@/assets/image/icon-bottom.png" alt="">{{$t('lang.user.lookMore')}}</div>
                 </div>
@@ -15,34 +15,36 @@
             <div class="main">
                 <ul>
                     <li>
-                        <img src="@/assets/image/item1.png" alt="">
+                        <img src="@/assets/image/item1.gif" alt="">
                     </li>
                     <li>
-                        <img src="@/assets/image/item2.png" alt="">
+                        <img src="@/assets/image/item2.gif" alt="">
                     </li>
                     <li>
-                        <img src="@/assets/image/item3.png" alt="">
+                        <img src="@/assets/image/item3.gif" alt="">
                     </li>
                     <li>
-                        <img src="@/assets/image/item4.png" alt="">
+                        <img src="@/assets/image/item4.gif" alt="">
                     </li>
                     <li>
-                        <img src="@/assets/image/item5.png" alt="">
+                        <img src="@/assets/image/item5.gif" alt="">
                     </li>
                     <li>
-                        <img src="@/assets/image/item6.png" alt="">
+                        <img src="@/assets/image/item6.gif" alt="">
                     </li>
                 </ul>
             </div>
-            <div class="reason">
-                <img class="title" src="@/assets/image/why.png" alt="">
-                <p class="line"></p>
-                <div class="chooseInner">
-                    <img class="chooseImg" src="@/assets/image/choose.png" alt="">
-                    <p class="wordesDetail1">{{$t('lang.user.heart')}}</p>
-                    <p class="wordesDetail2">{{$t('lang.user.groupServer')}}</p>
-                    <p class="wordesDetail3">{{$t('lang.user.evevironment')}}</p>
-                    <p class="wordesDetail4">7*{{$t('lang.user.support')}}</p>
+            <div class="reasonWrap">
+                <div class="reason">
+                    <img class="title" src="@/assets/image/why.png" alt="">
+                    <p class="line"></p>
+                    <div class="chooseInner">
+                        <img class="chooseImg" src="@/assets/image/choose.png" alt="">
+                        <p class="wordesDetail1">{{$t('lang.user.heart')}}</p>
+                        <p class="wordesDetail2">{{$t('lang.user.groupServer')}}</p>
+                        <p class="wordesDetail3">{{$t('lang.user.evevironment')}}</p>
+                        <p class="wordesDetail4">7*{{$t('lang.user.support')}}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -75,8 +77,10 @@ export default {
 .homeWrap {
     color: #fff;
     .top {
-        background: url("../assets/image/homeBg.png") no-repeat center;
+        background: url("../assets/image/homeIndexBg.png") no-repeat center;
         width: 100%;
+        height: 600px;
+        background-size: cover;
         .topInner {
             width: 800px;
             margin: 0 auto;
@@ -118,18 +122,23 @@ export default {
         }
     }
     .main {
-        width: 900px;
-        margin: 0 auto;
+        width: 100%;
+        background-color: #181C27;
+        padding-top: 200px;
+        padding-bottom: 200px;
         ul {
+            width: 950px;
+            margin: 0 auto;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             li {
                 float: left;
                 width: 268px;
                 height: 236px;
+                margin-bottom: 30px;
                 img {
                     width: 268px;
                     height: 236px;
@@ -137,47 +146,54 @@ export default {
             }
         }
     }
-    .reason {
-        width: 800px;
-        margin: 0 auto;
-        text-align: center;
-        .title {
-            width: 409px;
-            height: 96px;
-        }
-        .line {
-            background-color: #85262B;
+    .reasonWrap {
+        background: url("../assets/image/homeIndexBottomBg.png") no-repeat center;
+        width: 100%;
+        height: 600px;
+        background-size: cover;
+        .reason {
+            width: 800px;
             margin: 0 auto;
-            margin-top: 8px;
-            margin-bottom: 27px;
-            width: 420px;
-            height: 4px;
-        }
-        .chooseInner {
-            position: relative;
-            .chooseImg {
-                width: 596px;
-                height: 314px;
+            text-align: center;
+            .title {
+                width: 409px;
+                height: 96px;
+                padding-top: 100px;
             }
-            .wordesDetail1 {
-                position: absolute;
-                top: 110px;
-                left: 157px;
+            .line {
+                background-color: #85262B;
+                margin: 0 auto;
+                margin-top: 8px;
+                margin-bottom: 27px;
+                width: 420px;
+                height: 4px;
             }
-            .wordesDetail2 {
-                position: absolute;
-                top: 255px;
-                left: 285px;
-            }
-            .wordesDetail3 {
-                position: absolute;
-                top: 110px;
-                left: 437px;
-            }
-            .wordesDetail4 {
-                position: absolute;
-                top: 255px;
-                left: 570px;
+            .chooseInner {
+                position: relative;
+                .chooseImg {
+                    width: 596px;
+                    height: 314px;
+                }
+                .wordesDetail1 {
+                    position: absolute;
+                    top: 110px;
+                    left: 157px;
+                }
+                .wordesDetail2 {
+                    position: absolute;
+                    top: 255px;
+                    left: 285px;
+                }
+                .wordesDetail3 {
+                    position: absolute;
+                    top: 110px;
+                    left: 437px;
+                }
+                .wordesDetail4 {
+                    position: absolute;
+                    top: 255px;
+                    left: 570px;
+                }
             }
         }
     }

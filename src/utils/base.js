@@ -1,7 +1,6 @@
 import axios from 'axios'
 import URLS from '@/utils/api'
 import { showLoading, hideLoading } from './loading'
-
 // ajax请求统一增加请求头
 axios.interceptors.request.use(config => {
     config.headers.common = {
@@ -56,6 +55,7 @@ axios.interceptors.response.use((response) => {
         if (err.response.data.msg) {
             err.message = err.response.data.msg;
         }
+        console.log(err)
         this.$message({
             message: err.message
           })

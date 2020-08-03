@@ -130,7 +130,7 @@
                 var _this = this;
                 _this.$ajax.get(this.URLS.tradeResult, {
                         params: {
-                            tradeId: Util.getURLParam('tradeid') || '5e45b445-58s1-4649-9de5-633132628923'
+                            tradeId: Util.getURLParam('id') || '5e45b445-58s1-4649-9de5-633132628923'
                         }
                     })
                     .then(function(response) {
@@ -244,7 +244,7 @@
                     return;
                 }
                 let param = {
-                    Id: Util.getURLParam('tradeid') || '5e45b445-58s1-4649-9de5-633132628923',
+                    Id: Util.getURLParam('id') || '5e45b445-58s1-4649-9de5-633132628923',
                     TradeStatus: _this.TradeStatus || 0,
                     Seller: {
                         Id: _this.SellerId

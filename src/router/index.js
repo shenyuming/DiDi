@@ -36,7 +36,7 @@ export default new Router({
             }
         },
         {
-            path: "/information",
+            path: "/order/offline/info",
             name: "information",
             component: () => import("@/views/information"),
             meta: {

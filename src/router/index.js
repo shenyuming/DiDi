@@ -8,7 +8,7 @@ export default new Router({
             redirect: '/home',
             component: () => import("@/views/home"),
             meta: {
-                title: "Kamboo",
+                title: "kaboom",
                 keepAlive: true
             },
         }, {
@@ -16,7 +16,7 @@ export default new Router({
             name: "home",
             component: () => import("@/views/home"),
             meta: {
-                title: "Kamboo",
+                title: "kaboom",
                 keepAlive: true
             }
         },
@@ -25,7 +25,7 @@ export default new Router({
             name: "about",
             component: () => import("@/views/about"),
             meta: {
-                title: "Kamboo",
+                title: "kaboom",
                 keepAlive: true
             }
         },
@@ -34,7 +34,7 @@ export default new Router({
             name: "order",
             component: () => import("@/views/order"),
             meta: {
-                title: "Kamboo",
+                title: "kaboom",
                 keepAlive: true
             }
         },{
@@ -42,7 +42,7 @@ export default new Router({
             name: "login",
             component: () => import("@/views/login"),
             meta: {
-                title: "Kamboo",
+                title: "kaboom",
                 keepAlive: true
             }
         }

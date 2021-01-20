@@ -1,6 +1,7 @@
 import axios from 'axios'
 import URLS from '@/utils/api'
 import { showLoading, hideLoading } from './loading'
+
 // ajax请求统一增加请求头
 axios.interceptors.request.use(config => {
     config.headers.common = {
@@ -9,6 +10,7 @@ axios.interceptors.request.use(config => {
         //   'Access-Control-Allow-Headers':'X-Requested-With,Content-Type',
         //   'Access-Control-Allow-Methods':'PUT,POST,GET,DELETE,OPTIONS',
     }
+    config.headers['Authorization'] = 'Bearer ' + store.getters.oidcAccessToken
     showLoading();
     config.timeout = 10000;
     return config
@@ -45,7 +47,6 @@ axios.interceptors.response.use((response) => {
                 break
             case 403:
                 err.message = '拒绝访问'
-                this.$router.push({path:'/manager/index'})
                 break
             case 500:
                 err.message = '网络错误，请稍后再试'
@@ -55,7 +56,6 @@ axios.interceptors.response.use((response) => {
         if (err.response.data.msg) {
             err.message = err.response.data.msg;
         }
-        console.log(err)
         this.$message({
             message: err.message
           })

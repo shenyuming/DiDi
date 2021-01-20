@@ -1,89 +1,50 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
-const originalPush = Router.prototype.push
-Router.prototype.push = function push(location) {
-   return originalPush.call(this, location).catch(err => err)
-}
-
 export default new Router({
     routes: [
         {
             path: "/",
-            name: "login",
-            redirect: "/login",
-            component: () => import("@/views/login"),
+            redirect: '/home',
+            component: () => import("@/views/home"),
             meta: {
-                title: "DiDiMarket",
-                keepAlive: false
-            },
-        },
-        {
-            path: "/login",
-            name: "login",
-            component: () => import("@/views/login"),
-            meta: {
-                title: "DiDiMarket",
+                title: "Kamboo",
                 keepAlive: true
-            }
-        },{
+            },
+        }, {
             path: "/home",
             name: "home",
             component: () => import("@/views/home"),
             meta: {
-                title: "DiDiMarket",
+                title: "Kamboo",
                 keepAlive: true
             }
         },
         {
-            path: "/order/offline/info",
-            name: "information",
-            component: () => import("@/views/information"),
+            path: "/about",
+            name: "about",
+            component: () => import("@/views/about"),
             meta: {
-                title: "DiDiMarket",
+                title: "Kamboo",
                 keepAlive: true
             }
         },
         {
-            path: "/manager",
-            name: "管理员",
-            component: () => import("@/views/manager"),
+            path: "/order",
+            name: "order",
+            component: () => import("@/views/order"),
             meta: {
-                title: "DiDiMarket",
-                keepAlive: false
-            },
-            children: [
-                {
-                    path: "/manager/index",
-                    name: "index",
-                    component: () => import("@/views/manager/index"),
-                    meta: {
-                        title: "主页",
-                        keepAlive: false
-                    }
-                }
-            ]
-        },
-        {
-            path: "/user",
-            name: "用户",
-            component: () => import("@/views/user"),
+                title: "Kamboo",
+                keepAlive: true
+            }
+        },{
+            path: "/login",
+            name: "login",
+            component: () => import("@/views/login"),
             meta: {
-                title: "DiDiMarket",
-                keepAlive: false
-            },
-            children: [
-                {
-                    path: "index",
-                    name: "userIndex",
-                    component: () => import("@/views/user/index"),
-                    meta: {
-                        title: "会员主页",
-                        keepAlive: false
-                    }
-                }
-            ]
+                title: "Kamboo",
+                keepAlive: true
+            }
         }
     ]
-
 })

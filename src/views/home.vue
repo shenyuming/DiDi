@@ -1,201 +1,514 @@
 <template>
-    <div class="homeWrap">
-        <user-head-component></user-head-component>
-        <div class="homeInner">
-            <div class="top">
-                <div class="topInner">
-                    <img class="logo" src="@/assets/image/whyIndex.png" alt="">
-                    <div class="line"></div>
-                    <div class="titile">
-                        {{$t('lang.user.newWelcome')}}
-                    </div>
-                    <div class="more"><img src="@/assets/image/icon-bottom.png" alt="">{{$t('lang.user.lookMore')}}</div>
-                </div>
-            </div>
+    <div>
+        <div class="homeWrap">
+            <head-component></head-component>
             <div class="main">
                 <ul>
                     <li>
-                        <img src="@/assets/image/item1.gif" alt="">
+                        <div class="inner">
+                            <div class="imgCenter">
+                                <img src="../assets/image/item1.png" alt="">
+                            </div>
+                            <p class="brand">NIKE GRADE SCHOOL AIR MAX 90 LTR</p>
+                            <div class="detail">
+                                <p>Grade School Air Max 90 sihouette</p>
+                                <p>Leather upper</p>
+                                <p>Suede overlayes</p>
+                                <p>Padded collar</p>
+                                <p>TPU eyelets</p>
+                                <p>Nike Swoosh patch on tongue</p>
+                                <p>Air Max branding on side panel</p>
+                                <p>Rubberized Nike Air patch on heel</p>
+                                <p>Flat cotton laces</p>
+                                <!-- <p>Visible sole unit</p>
+                                    <p>Foam midsole</p>
+                                    <p>Rubber waffle outsole</p> -->
+                            </div>
+                            <div class="price">
+                                80 usd
+                            </div>
+                            <div class="subInfo">
+                                <p>Style:NKCD6864-102</p>
+                                <p>Color:White/Particle Grey/Light Smoke</p>
+                                <p>Material:Leather/Suede</p>
+                            </div>
+                            <div class="operate">
+                                <p @mouseover="showDetail()" class="likeSize">Size</p>
+                                <p class="buyInfo">Buy</p>
+                            </div>
+                        </div>
+                        <div class="size" v-if="showFlag">
+                            <div class="likeUl" v-for="(item,index) in sizeList" :key="index">
+                                <p :class="{'active': index == activeLinkId}">{{item.name}}</p>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <img src="@/assets/image/item2.gif" alt="">
+                        <div class="inner">
+                            <div class="imgCenter">
+                                <img src="../assets/image/item2.png" alt="">
+                            </div>
+                            <p class="brand">CONVERSE X FENG CHEN WANG JACK PURCELL MID</p>
+                            <div class="detail">
+                                <p>Jack Purcell Mid sihouette</p>
+                                <p>PU coated nubuck leather upper</p>
+                                <p>Feng Chen Wang branding on lateral heel</p>
+                                <p>Converse Jack Purcell On rear</p>
+                                <p>Tonal stitching</p>
+                                <p>Flat cotton laces</p>
+                                <p>Matte rubber foxing</p>
+                                <p>Rubber outsole</p>
+                            </div>
+                            <div class="price">
+                                120 usd
+                            </div>
+                            <div class="subInfo">
+                                <p>Style:CN169008C</p>
+                                <p>Color:Obsidian/Sea Salt/Black</p>
+                                <p>Material:Leather/Nubuck</p>
+                            </div>
+                            <div class="operate">
+                                <p @mouseover="showDetail1()" class="likeSize">Size</p>
+                                <p class="buyInfo">Buy</p>
+                            </div>
+                            <div class="size" v-if="showFlag1">
+                                <div class="likeUl" v-for="(item,index) in sizeList1" :key="index">
+                                    <p :class="{'active': index == activeLinkId1}">{{item.name}}</p>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li>
-                        <img src="@/assets/image/item3.gif" alt="">
-                    </li>
-                    <li>
-                        <img src="@/assets/image/item4.gif" alt="">
-                    </li>
-                    <li>
-                        <img src="@/assets/image/item5.gif" alt="">
-                    </li>
-                    <li>
-                        <img src="@/assets/image/item6.gif" alt="">
+                        <div class="inner">
+                            <div class="imgCenter">
+                                <img src="../assets/image/item3.png" alt="">
+                            </div>
+                            <p class="brand">ADIDAS CONSORTIUM X HUMAN MADE CAMPUS</p>
+                            <div class="detail">
+                                <p>Grade School Air Max 90 sihouette</p>
+                                <p>Leather upper</p>
+                                <p>Suede overlayes</p>
+                                <p>Padded collar</p>
+                                <p>TPU eyelets</p>
+                                <p>Rubberized Nike Air patch on heel</p>
+                                <p>Flat cotton laces</p>
+                                <p>Visible sole unit</p>
+                                <p>Foam midsole</p>
+                                <p>Rubber waffle outsole</p>
+                            </div>
+                            <div class="price">
+                                150 usd
+                            </div>
+                            <div class="subInfo">
+                                <p>Style:NKCD6864-102</p>
+                                <p>Color:White/Particle Grey/Light Smoke</p>
+                                <p>Material:Leather/Suede</p>
+                            </div>
+                            <div class="operate">
+                                <p @mouseover="showDetail2()" class="likeSize">Size</p>
+                                <p class="buyInfo">Buy</p>
+                            </div>
+                            <div class="size" v-if="showFlag2">
+                                <div class="likeUl" v-for="(item,index) in sizeList2" :key="index">
+                                    <p :class="{'active': index == activeLinkId2}">{{item.name}}</p>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
-            </div>
-            <div class="reasonWrap">
-                <div class="reason">
-                    <img class="title" src="@/assets/image/why.png" alt="">
-                    <p class="line"></p>
-                    <div class="chooseInner">
-                        <img class="chooseImg" src="@/assets/image/choose.png" alt="">
-                        <p class="wordesDetail1">{{$t('lang.user.heart')}}</p>
-                        <p class="wordesDetail2">{{$t('lang.user.groupServer')}}</p>
-                        <p class="wordesDetail3">{{$t('lang.user.evevironment')}}</p>
-                        <p class="wordesDetail4">7*{{$t('lang.user.support')}}</p>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </template>
 
-<script>
-import userHeadComponent from "@/components/userHeadComponent"
-export default {
-    name: "home",
-    components: {
-        userHeadComponent
-    },
-    data() {
-        return {
-            language: localStorage.getItem('language') || 'zh',
-        };
-    },
-    methods: {
 
-    },
-    created() {
-        var _this = this;
-        _this.$i18n.locale = _this.language;
-    }
-};
+<script>
+    import headComponent from "@/components/headComponent";
+    import Utils from "@/utils/util";
+    export default {
+        name: "home",
+        data() {
+            return {
+                sizeList: [{
+                        name: 35.5,
+                        id: 0
+                    },
+                    {
+                        name: 36,
+                        id: 1
+                    },
+                    {
+                        name: 36.5,
+                        id: 2
+                    },
+                    {
+                        name: 37,
+                        id: 3
+                    },
+                    {
+                        name: 37.5,
+                        id: 4
+                    },
+                    {
+                        name: 38,
+                        id: 5
+                    },
+                    {
+                        name: 38.5,
+                        id: 6
+                    },
+                    {
+                        name: 39,
+                        id: 7
+                    },
+                    {
+                        name: 39.5,
+                        id: 8
+                    },
+                    {
+                        name: 40,
+                        id: 9
+                    },
+                    {
+                        name: 41,
+                        id: 10
+                    },
+                    {
+                        name: 42,
+                        id: 11
+                    },
+                    {
+                        name: 43,
+                        id: 12
+                    },
+                    {
+                        name: 44,
+                        id: 13
+                    },
+                    {
+                        name: 45,
+                        id: 14
+                    }
+                ],
+                activeLinkId: 0,
+                showFlag: false,
+                sizeList1: [{
+                        name: 35.5,
+                        id: 0
+                    },
+                    {
+                        name: 36,
+                        id: 1
+                    },
+                    {
+                        name: 36.5,
+                        id: 2
+                    },
+                    {
+                        name: 37,
+                        id: 3
+                    },
+                    {
+                        name: 37.5,
+                        id: 4
+                    },
+                    {
+                        name: 38,
+                        id: 5
+                    },
+                    {
+                        name: 38.5,
+                        id: 6
+                    },
+                    {
+                        name: 39,
+                        id: 7
+                    },
+                    {
+                        name: 39.5,
+                        id: 8
+                    },
+                    {
+                        name: 40,
+                        id: 9
+                    },
+                    {
+                        name: 41,
+                        id: 10
+                    },
+                    {
+                        name: 42,
+                        id: 11
+                    },
+                    {
+                        name: 43,
+                        id: 12
+                    },
+                    {
+                        name: 44,
+                        id: 13
+                    },
+                    {
+                        name: 45,
+                        id: 14
+                    },
+                    {
+                        name: 46,
+                        id: 15
+                    },
+                    {
+                        name: 47,
+                        id: 16
+                    },
+                    {
+                        name: 48,
+                        id: 17
+                    },
+                    {
+                        name: 49,
+                        id: 18
+                    }
+                ],
+                activeLinkId1: 0,
+                showFlag1: false,
+                sizeList2: [{
+                        name: 35.5,
+                        id: 0
+                    },
+                    {
+                        name: 36,
+                        id: 1
+                    },
+                    {
+                        name: 37,
+                        id: 2
+                    },
+                    {
+                        name: 37.5,
+                        id: 3
+                    },
+                    {
+                        name: 38,
+                        id: 4
+                    },
+                    {
+                        name: 39,
+                        id: 5
+                    },
+                    {
+                        name: 39.5,
+                        id: 6
+                    },
+                    {
+                        name: 40,
+                        id: 7
+                    },
+                    {
+                        name: 40.5,
+                        id: 8
+                    },
+                    {
+                        name: 41,
+                        id: 9
+                    },
+                    {
+                        name: 42,
+                        id: 10
+                    },
+                    {
+                        name: 43,
+                        id: 11
+                    },
+                    {
+                        name: 43.5,
+                        id: 12
+                    },
+                    {
+                        name: 44.5,
+                        id: 13
+                    },
+                    {
+                        name: 45,
+                        id: 14
+                    },
+                    {
+                        name: 46,
+                        id: 15
+                    },
+                    {
+                        name: 46.5,
+                        id: 16
+                    },
+                    {
+                        name: 47,
+                        id: 17
+                    }
+                ],
+                activeLinkId2: 0,
+                showFlag2: false
+            };
+        },
+        components: {
+            headComponent
+        },
+        methods: {
+            showDetail() {
+                this.showFlag = !this.showFlag;
+            },
+            showDetail1() {
+                this.showFlag1 = !this.showFlag1;
+            },
+            showDetail2() {
+                this.showFlag2 = !this.showFlag2;
+            }
+        },
+        computed: {},
+        created() {}
+    };
 </script>
 
 <style lang="scss" scoped>
-.homeWrap {
-    color: #fff;
-    .top {
-        background: url("../assets/image/homeIndexBg.png") no-repeat center;
-        width: 100%;
-        height: 600px;
-        background-size: cover;
-        .topInner {
-            width: 800px;
-            margin: 0 auto;
+    .homeWrap {
+        .likeSize {
+            height: 30px;
+            line-height: 30px;
+            width: 60px;
             text-align: center;
-            .logo {
-                width: 236px;
-                height: 96px;
-                margin-top: 130px;
-            }
-            .line {
-                background-color: #85262B;
-                margin: 0 auto;
-                margin-top: 18px;
-                margin-bottom: 77px;
-                width: 132px;
-                height: 4px;
-            }
-            .titile {
-                line-height: 36px;
-                width: 750px;
-                margin: 0 auto;
-                margin-bottom: 60px;
-            }
-            .more {
-                background: #85262B;
-                margin: 0 auto;
-                border-radius: 8px;
-                width: 214px;
-                line-height: 65px;
-                height: 65px;
-                font-size: 14px;
-                img {
-                    width: 26px;
-                    height: 27px;
-                    padding-right: 8px;
-                    vertical-align: -10px;
-                }
-            }
+            background-color: #4A0DC8;
+            border-radius: 30px;
+             cursor: pointer;
         }
-    }
-    .main {
-        width: 100%;
-        background-color: #181C27;
-        padding-top: 200px;
-        padding-bottom: 200px;
-        ul {
-            width: 950px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            li {
-                float: left;
-                width: 268px;
-                height: 236px;
-                margin-bottom: 30px;
-                img {
-                    width: 268px;
-                    height: 236px;
-                }
-            }
-        }
-    }
-    .reasonWrap {
-        background: url("../assets/image/homeIndexBottomBg.png") no-repeat center;
-        width: 100%;
-        height: 600px;
-        background-size: cover;
-        .reason {
-            width: 800px;
-            margin: 0 auto;
+        .buyInfo {
+            height: 30px;
+            line-height: 30px;
+            width: 60px;
             text-align: center;
-            .title {
-                width: 409px;
-                height: 96px;
-                padding-top: 100px;
-            }
-            .line {
-                background-color: #85262B;
-                margin: 0 auto;
-                margin-top: 8px;
-                margin-bottom: 27px;
-                width: 420px;
-                height: 4px;
-            }
-            .chooseInner {
-                position: relative;
-                .chooseImg {
-                    width: 596px;
-                    height: 314px;
-                }
-                .wordesDetail1 {
-                    position: absolute;
-                    top: 110px;
-                    left: 157px;
-                }
-                .wordesDetail2 {
-                    position: absolute;
-                    top: 255px;
-                    left: 285px;
-                }
-                .wordesDetail3 {
-                    position: absolute;
-                    top: 110px;
-                    left: 437px;
-                }
-                .wordesDetail4 {
-                    position: absolute;
-                    top: 255px;
-                    left: 570px;
+            background-color: #4A0DC8;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .main {
+            width: 1060px;
+            margin: 0 auto;
+            padding-bottom: 200px;
+            ul {
+                display: flex;
+                justify-content: space-between;
+                li {
+                    background-color: #f5fbfe;
+                    border-radius: 20px;
+                    padding: 25px 25px 0px 25px;
+                    width: 280px;
+                    position: relative;
+                    .inner {
+                        background: linear-gradient(#fefdeb, #fcfdef);
+                    }
+                    .imgCenter {
+                        text-align: center;
+                        background-color: #fff;
+                        height: 200px;
+                        width: 100%;
+                        overflow: hidden;
+                        img {
+                            width: 240px;
+                        }
+                    }
+                    .brand {
+                        padding: 10px 0;
+                        margin: 0 20px;
+                        height: 40px;
+                        font-weight: bold;
+                        color: #6a6a6a;
+                        font-size: 20px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                    }
+                    .detail {
+                        height: 150px;
+                        p {
+                            color: #babbb4;
+                            padding: 0 20px;
+                            font-size: 12px;
+                        }
+                    }
+                    .price {
+                        color: red;
+                        padding-left: 30px;
+                        font-size: 18px;
+                    }
+                    .subInfo {
+                        margin: 10px 0;
+                        p {
+                            padding: 0 20px;
+                            color: #4A0DC8;
+                        }
+                    }
+                    .operate {
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 10px;
+                        img {
+                            cursor: pointer;
+                        }
+                    }
+                    .size {
+                        position: absolute;
+                        bottom: 50px;
+                        left: 50px;
+                        background: url("../assets/image/sizeBor.png") no-repeat;
+                        width: 167px;
+                        background-size: 100%;
+                        height: 167px;
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-wrap: wrap;
+                        padding: 10px;
+                        .likeUl {
+                            p {
+                                color: #6d6d6d;
+                                background-color: #fff;
+                                width: 28px;
+                                height: 28px;
+                                line-height: 28px;
+                                text-align: center;
+                                border-radius: 28px;
+                                cursor: pointer;
+                                margin: 0 5px;
+                                position: relative;
+                                font-size: 12px;
+                                &::before {
+                                    content: "";
+                                    position: absolute;
+                                    top: 22px;
+                                    left: 6px;
+                                    width: 15px;
+                                    height: 1px;
+                                    background-color: #6d6d6d;
+                                }
+                                &:active {
+                                    color: #fff;
+                                    background-color: #4A0DC8;
+                                }
+                                &:hover {
+                                    color: #fff;
+                                    background-color: #4A0DC8;
+                                }
+                            }
+                            .active {
+                                color: #fff;
+                                background-color: #4A0DC8;
+                                &::before {
+                                    background-color: #fff;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
     }
-}
 </style>
+

@@ -1,98 +1,75 @@
 <template>
-    <div class="loginWrap">
-        <div class="loginInner">
-            <div class="login">
-                <div class="content-holder">
-                    <div class="user-head">
-                        <div class="text-box">
-                            <div class="subtitle">
-                                <img src="@/assets/image/whyIndex.png" alt="">
-                            </div>
-                            <p class="subInfo">Login with Discord to continue.</p>
-                        </div>
-                    </div>
-                    <a :href="loginIn" class="detail-holder">Login</a>
+    <div>
+        <head-component></head-component>
+
+        <div class="loginWrap">
+            <div class="loginInner">
+                <div class="login">
+                    <img
+                        src="@/assets/image/login.png"
+                        alt=""
+                    >
                 </div>
+                <p class="title">Sign in with Discord</p>
+                <p class="but">Sign In Discord</p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import headComponent from "@/components/headComponent";
+
 export default {
-    name: "login",
-    data() {
-        return {
-            loginIn: this.URLS.logIn
-        };
-    },
-    methods: {
-
-    },
-    created() {
-
-    },
-    beforeCreate() {
-        document.getElementsByTagName("body")[0].className = "loginBg";
-    },
-    beforeDestroy: function() {
-        document.body.removeAttribute("class", "loginBg");
-    }
+  name: "login",
+  components: {
+    headComponent
+  },
+  data() {
+    return {};
+  },
+  methods: {},
+  created() {},
+  mounted() {}
 };
 </script>
 
 <style lang="scss" scoped>
 .loginWrap {
-    padding-top: 200px;
-    .loginInner {
-        margin: 0 auto;
-        .login {
-            text-align: center;
-            .vmlogo {
-                width: 150px;
-                margin-top: 60px;
-                margin-bottom: 40px;
-            }
-            .content-holder {
-                border: 2px solid #282f42;
-                border-radius: 10px;
-                background-color: rgba(0, 0, 0, .3);
-                width: 500px;
-                margin: 0 auto;
-                .user-head {
-                    font-size: 13px;
-                    line-height: 16px;
-                    font-weight: 300;
-                    text-align: center;
-                    padding: 20px 20px 10px 20px;
-                    border-radius: 10px;
-                    color: #6b7182;
-                    background-color: rgba(0, 0, 0, .3);
-                    .subtitle {
-                        img {
-                            width: 236px;
-                            height: 96px;
-                        }
-                    }
-                    .subInfo {
-                        line-height: 35px;
-                        padding: 10px 0;
-                        color: #aaa;
-                    }
-                }
-                .detail-holder {
-                    display: block;
-                    padding: 15px 30px;
-                    font-size: 26px;
-                    width: 400px;
-                    margin: 20px auto;
-                    background: #b81d24;
-                    cursor: pointer;
-                    border-radius: 10px;
-                    color: #fff;
-                }
-            }
-        }
+  width: 634px;
+  height: 380px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #2e303e;
+  border-radius: 20px;
+  .loginInner {
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+    .login {
+      padding-top: 60px;
     }
+    .title {
+      padding: 20px 0 40px 0;
+      font-size: 16px;
+    }
+    .but {
+      background-image: linear-gradient(180deg, #c3cdff 0%, #7280cf 100%);
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      height: 60px;
+      line-height: 60px;
+      border-radius: 30px;
+      text-align: center;
+      width: 200px;
+      color: #fff;
+      margin: 0 auto;
+    }
+  }
 }
 </style>

@@ -11,7 +11,7 @@
                     >
                 </div>
                 <p class="title">Sign in with Discord</p>
-                <p class="but">Sign In Discord</p>
+                <p class="but">登录</p>
             </div>
         </div>
     </div>

@@ -2,10 +2,10 @@
     <div class="headTitleWrap">
         <div class="top">
             <div class="allInfo">
-                <p id="item1" class="item" :class="{'active1':isFlag1}" @click="gohome">Product</p>
-                <p id="item2" class="item" :class="{'active2':isFlag2}" @click="goOrder">Orders</p>
-                <p id="item2" class="item" :class="{'active4':isFlag3}" @click="goSupport">Support</p>
-                <p id="item3" class="item" :class="{'active3':isFlag4}" @click="goLogin">Login</p>
+                <p id="item1" class="item" :class="{'active1':isFlag1}" @click="gohome">产品</p>
+                <p id="item2" class="item" :class="{'active2':isFlag2}" @click="goOrder">订单</p>
+                <p id="item2" class="item" :class="{'active4':isFlag3}" @click="goSupport">支持</p>
+                <p id="item3" class="item" :class="{'active3':isFlag4}" @click="goLogin">登录</p>
             </div>
         </div>
     </div>

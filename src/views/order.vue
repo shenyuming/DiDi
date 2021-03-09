@@ -18,7 +18,7 @@
             </div>
             <div class="no-data" v-else>
                 <img src="@/assets/image/noStatus.png" alt="">
-                <p>no data ~</p>
+                <p>暂时没有数据 ~</p>
             </div>
         </div>
     </div>

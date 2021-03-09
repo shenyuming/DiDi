@@ -9,32 +9,32 @@
                             <div class="imgCenter">
                                 <img src="../assets/image/item1.png" alt="">
                             </div>
-                            <p class="brand">NIKE GRADE SCHOOL AIR MAX 90 LTR</p>
+                            <p class="brand">JEEP吉普板鞋男鞋春季新款韩版真皮男士百搭休闲皮鞋子男潮鞋</p>
                             <div class="detail">
-                                <p>Grade School Air Max 90 sihouette</p>
-                                <p>Leather upper</p>
-                                <p>Suede overlayes</p>
-                                <p>Padded collar</p>
-                                <p>TPU eyelets</p>
-                                <p>Nike Swoosh patch on tongue</p>
-                                <p>Air Max branding on side panel</p>
-                                <p>Rubberized Nike Air patch on heel</p>
-                                <p>Flat cotton laces</p>
+                                <p>品牌: JEEP/吉普</p>
+                                <p>功能: 耐磨</p>
+                                <p>鞋面材质: 头层猪皮</p>
+                                <p>帮面内里材质: 头层猪皮</p>
+                                <p>款式: 休闲高帮皮鞋</p>
+                                <p></p>
+                                <p>场合: 运动休闲</p>
+                                <p> </p>
+                                <p>适用对象: 青年（18-40周岁）</p>
                                 <!-- <p>Visible sole unit</p>
                                     <p>Foam midsole</p>
                                     <p>Rubber waffle outsole</p> -->
                             </div>
                             <div class="price">
-                                80 usd
+                                ￥800
                             </div>
                             <div class="subInfo">
-                                <p>Style:NKCD6864-102</p>
-                                <p>Color:White/Particle Grey/Light Smoke</p>
-                                <p>Material:Leather/Suede</p>
+                                <p>货号: JB9Y078KP</p>
+                                <p>颜色分类: 卡其色 沙色 卡其色加绒</p>
+                                <p>材质:皮</p>
                             </div>
                             <div class="operate">
-                                <p @mouseover="showDetail()" class="likeSize">Size</p>
-                                <p class="buyInfo">Buy</p>
+                                <p @mouseover="showDetail()" class="likeSize">尺寸</p>
+                                <p class="buyInfo">购买</p>
                             </div>
                         </div>
                         <div class="size" v-if="showFlag">
@@ -48,28 +48,23 @@
                             <div class="imgCenter">
                                 <img src="../assets/image/item2.png" alt="">
                             </div>
-                            <p class="brand">CONVERSE X FENG CHEN WANG JACK PURCELL MID</p>
+                            <p class="brand">Converse匡威男士帆布高帮板鞋</p>
                             <div class="detail">
-                                <p>Jack Purcell Mid sihouette</p>
-                                <p>PU coated nubuck leather upper</p>
-                                <p>Feng Chen Wang branding on lateral heel</p>
-                                <p>Converse Jack Purcell On rear</p>
-                                <p>Tonal stitching</p>
-                                <p>Flat cotton laces</p>
-                                <p>Matte rubber foxing</p>
-                                <p>Rubber outsole</p>
+                                <p>品牌: Converse/匡威</p>
+                                <p>运动系列: CHUCK TAYLOR</p>
+                                <p>帮面材质: 帆布</p>
                             </div>
                             <div class="price">
-                                120 usd
+                                ￥120
                             </div>
                             <div class="subInfo">
-                                <p>Style:CN169008C</p>
-                                <p>Color:Obsidian/Sea Salt/Black</p>
-                                <p>Material:Leather/Nubuck</p>
+                                <p>货号:CN169008C</p>
+                                <p>颜色分类: 白色</p>
+                                <p>材料:帆布</p>
                             </div>
                             <div class="operate">
-                                <p @mouseover="showDetail1()" class="likeSize">Size</p>
-                                <p class="buyInfo">Buy</p>
+                                <p @mouseover="showDetail1()" class="likeSize">尺寸</p>
+                                <p class="buyInfo">购买</p>
                             </div>
                             <div class="size" v-if="showFlag1">
                                 <div class="likeUl" v-for="(item,index) in sizeList1" :key="index">
@@ -83,30 +78,30 @@
                             <div class="imgCenter">
                                 <img src="../assets/image/item3.png" alt="">
                             </div>
-                            <p class="brand">ADIDAS CONSORTIUM X HUMAN MADE CAMPUS</p>
+                            <p class="brand">CAT男鞋 真皮牛皮低帮鞋 日常舒适皮休闲男鞋 经典耐磨鞋专柜同款</p>
                             <div class="detail">
-                                <p>Grade School Air Max 90 sihouette</p>
-                                <p>Leather upper</p>
-                                <p>Suede overlayes</p>
-                                <p>Padded collar</p>
-                                <p>TPU eyelets</p>
-                                <p>Rubberized Nike Air patch on heel</p>
-                                <p>Flat cotton laces</p>
-                                <p>Visible sole unit</p>
-                                <p>Foam midsole</p>
-                                <p>Rubber waffle outsole</p>
+                                <p>品牌: CAT</p>
+                                <p>功能: 耐磨</p>
+                                <p>闭合方式: 系带</p>
+                                <p>季节: 春秋</p>
+                                <p>鞋头款式: 扁头</p>
+                                <p>场合: 日常</p>
+                                <p>鞋面内里材质: 无内里</p>
+                                <p>适用对象: 青年（18-40周岁） 中年</p>
+                                <p>鞋面材质: 头层牛皮（除牛反绒）</p>
+                                <p>款式: 户外休闲鞋</p>
                             </div>
                             <div class="price">
-                                150 usd
+                                ￥1200
                             </div>
                             <div class="subInfo">
-                                <p>Style:NKCD6864-102</p>
-                                <p>Color:White/Particle Grey/Light Smoke</p>
-                                <p>Material:Leather/Suede</p>
+                                <p>货号: P722398H1UMR29</p>
+                                <p>颜色分类: 杏色 浅褐色</p>
+                                <p>材质: 头层牛皮</p>
                             </div>
                             <div class="operate">
-                                <p @mouseover="showDetail2()" class="likeSize">Size</p>
-                                <p class="buyInfo">Buy</p>
+                                <p @mouseover="showDetail2()" class="likeSize">尺寸</p>
+                                <p class="buyInfo">购买</p>
                             </div>
                             <div class="size" v-if="showFlag2">
                                 <div class="likeUl" v-for="(item,index) in sizeList2" :key="index">
